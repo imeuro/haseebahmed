@@ -1,0 +1,19 @@
+*.log
+*.sql
+php_errorlog
+.DS_Store
+
+.gitmodules
+.*/gitmodules
+.gitignore
+*/.gitignore      # ignore files in sub directories
+*/.gitkeep
+.git-ftp-ignore
+.git-ftp-include
+.gitlab-ci.yml
+
+wp-config.php
+wp-config.*
+
+HA-content/plugins/google-analytics-dashboard-for-wp/*
+wordpress
