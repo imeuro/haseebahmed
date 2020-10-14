@@ -1,5 +1,8 @@
 *.log
 *.sql
+*.zip
+*.tar
+*.tar.*
 php_errorlog
 .DS_Store
 
