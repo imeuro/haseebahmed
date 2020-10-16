@@ -34,22 +34,25 @@ header#masthead {
 
 /* home carousel */
 .carousel-main { 
-  height: calc(100vh - 75px);
-  height: calc((var(--vh, 1vh) * 100) - 75px); /* real 100vh */
+  height: calc(100vh - 60px);
+  height: calc((var(--vh, 1vh) * 100) - 60px); /* real 100vh */
 }
 .carousel-cell {
   width: 90%;
   max-width: 90%;
-  height: calc(100vh - 75px);
-  height: calc((var(--vh, 1vh) * 100) - 75px); /* real 100vh */
+  height: calc(100vh - 60px);
+  height: calc((var(--vh, 1vh) * 100) - 60px); /* real 100vh */
   margin-right: 2px;
   counter-increment: carousel-cell;
   transition: width 0.4s, max-width 0.4s;
 }
-
+.carousel-nav {
+    margin-bottom: 10px;
+}
 .carousel-nav .carousel-cell {
-  height: 75px;
-  width: 75px;
+  height: 50px;
+  width: 50px;
+  border-radius: 1px;
 }
 
 .carousel-nav .carousel-cell:before {
@@ -58,12 +61,12 @@ header#masthead {
 }
 
 .carousel-nav .carousel-cell.is-nav-selected {
-  border: 3px solid #f54321;
+  border: 2px solid #f54321;
 }
 
 .carousel-cell-image {
   position: relative;
-  top: -75px;
+  top: -60px;
   display: block;
   margin: 0 auto;
   max-width: 100%;
