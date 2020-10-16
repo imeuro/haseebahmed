@@ -33,11 +33,15 @@ header#masthead {
 }
 
 /* home carousel */
-.carousel-main { height: calc(100vh - 75px); }
+.carousel-main { 
+  height: calc(100vh - 75px);
+  height: calc((var(--vh, 1vh) * 100) - 75px); /* real 100vh */
+}
 .carousel-cell {
   width: 90%;
   max-width: 90%;
   height: calc(100vh - 75px);
+  height: calc((var(--vh, 1vh) * 100) - 75px); /* real 100vh */
   margin-right: 2px;
   counter-increment: carousel-cell;
   transition: width 0.4s, max-width 0.4s;
@@ -65,6 +69,7 @@ header#masthead {
   max-width: 100%;
   object-fit: cover;
   height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
   opacity: 0;
   -webkit-transition: opacity 0.4s;
           transition: opacity 0.4s;
