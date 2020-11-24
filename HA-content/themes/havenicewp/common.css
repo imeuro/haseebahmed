@@ -1,3 +1,37 @@
+
+/* SECTIONS COLOR VARS */
+:root {
+  --black: #000;
+  --white: #fff;
+  --scirocco: #ff0000;
+  --acqua-alta: #d1ba01;
+  --mose: #7f5de1;
+  --fosgene: #45db51;
+  --tromba-daria: #ff00ff;
+  --sky: #0098ff;
+}
+.color-scirocco { color: var(--scirocco);}
+.color-acqua-alta { color: var(--acqua-alta);}
+.color-mose { color: var(--mose);}
+.color-fosgene { color: var(--fosgene);}
+.color-tromba-daria { color: var(--tromba-daria);}
+.color-sky { color: var(--sky);}
+
+.border-color-scirocco { border-color: var(--scirocco);}
+.border-color-acqua-alta { border-color: var(--acqua-alta);}
+.border-color-mose { border-color: var(--mose);}
+.border-color-fosgene { border-color: var(--fosgene);}
+.border-color-tromba-daria { border-color: var(--tromba-daria);}
+.border-color-sky { border-color: var(--sky);}
+
+.background-color-scirocco { background-color: var(--scirocco);}
+.background-color-acqua-alta { background-color: var(--acqua-alta);}
+.background-color-mose { background-color: var(--mose);}
+.background-color-fosgene { background-color: var(--fosgene);}
+.background-color-tromba-daria { background-color: var(--tromba-daria);}
+.background-color-sky { background-color: var(--sky);}
+
+
 /* header / primary menu */
 header#masthead {
     position: fixed;
@@ -8,29 +42,71 @@ header#masthead {
     align-items: center;
     justify-content: space-around;
 }
-.main-navigation ul#primary-menu {
+.main-navigation ul#primary-menu,
+.secondary-navigation ul#secondary-menu {
+    list-style: none;
     width: 100%;
-    flex-flow: row wrap;
+    padding: 0 20px;
+    margin: 0;
+    display: flex;
+    flex-flow: row nowrap;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
+    background-color: #fff;
 }
-.main-navigation li {
-    padding: 6px 10px;
-    margin: 20px 8px;
-    background: rgba(255,255,255,.75);
-    opacity: .75;
-    border-radius: 20px;
-    font-size: 12px;
-    transition: opacity 0.4s, background 0.4s;
+.main-navigation ul#primary-menu:before,
+.secondary-navigation ul#secondary-menu:before {
+  content:'Categories:';
+  font-family: 'Hershey-Noailles-futurab',sans-serif;
+  font-size: 17px;
+  line-height: 26px;
+  color: var(--black);
+  display: inline-block;
+  margin: 5px 5px 10px 5px;
+  padding: 0px 8px;
 }
-.main-navigation li:hover {
+.secondary-navigation ul#secondary-menu:before {
+  content:'Steps:';
+}
+.main-navigation li,
+.secondary-navigation li {
+    flex: 0 1 auto;
+    text-align: center;
+}
+.main-navigation li:last-child ,
+.secondary-navigation li:last-child { 
+  flex: 1 0 auto;
+  text-align: right;
+}
+.main-navigation li:hover,
+.secondary-navigation li:hover {
   background: rgba(255,255,255,1);
-  opacity: 1;
 }
-.main-navigation li a {
-    font-size: 12px;
-    color: #757575;
+.main-navigation li a,
+.secondary-navigation li a {
+    font-family: 'Hershey-Noailles-futurab', sans-serif;
+    font-size: 17px;
+    line-height: 26px;
+    color: inherit;
+    display: inline-block;
+    transition: color 0.5s, background 0.5s;
+    margin: 5px 5px 10px 5px;
+    padding: 0px 8px;
+    box-shadow: 0 0 5px #0007;
 }
+.main-navigation .color-scirocco a:hover,
+.main-navigation .color-scirocco.current-menu-item a { color: var(--white); background-color: var(--scirocco);}
+.main-navigation .color-acqua-alta a:hover,
+.main-navigation .color-acqua-alta.current-menu-item a { color: var(--white); background-color: var(--acqua-alta);}
+.main-navigation .color-mose a:hover,
+.main-navigation .color-mose.current-menu-item a { color: var(--white); background-color: var(--mose);}
+.main-navigation .color-fosgene a:hover,
+.main-navigation .color-fosgene.current-menu-item a { color: var(--white); background-color: var(--fosgene);}
+.main-navigation .color-tromba-daria a:hover,
+.main-navigation .color-tromba-daria.current-menu-item a { color: var(--white); background-color: var(--tromba-daria);}
+.main-navigation .color-sky a:hover,
+.main-navigation .color-sky.current-menu-item a { color: var(--white); background-color: var(--sky);}
+
 
 /* home carousel */
 .carousel-main { 
@@ -38,75 +114,63 @@ header#masthead {
   height: calc((var(--vh, 1vh) * 100) - 60px); /* real 100vh */
 }
 .carousel-cell {
-  width: 90%;
-  max-width: 90%;
+  width: 66%;
+  max-width: 66%;
   height: calc(100vh - 60px);
   height: calc((var(--vh, 1vh) * 100) - 60px); /* real 100vh */
   margin-right: 2px;
   counter-increment: carousel-cell;
   transition: width 0.4s, max-width 0.4s;
 }
-.carousel-nav {
-    margin-bottom: 10px;
-}
-.carousel-nav .carousel-cell {
-  height: 50px;
-  width: 50px;
-  border-radius: 1px;
-}
 
-.carousel-nav .carousel-cell:before {
-  font-size: 50px;
-  line-height: 80px;
+.carousel-cell a {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: flex-start;
+    justify-content: flex-start;
+    height: calc(100vh - 50px);
+    margin: 50px 0 0 0;
+    text-decoration: none;
+    border-top-width: 3px;
+    border-top-style: solid;
 }
-
-.carousel-nav .carousel-cell.is-nav-selected {
-  border: 2px solid #f54321;
+.entry-header {
+    flex: 0 1 calc(66%);
+    height: 25%;
+    overflow: hidden;
+    background: var(--white);
+    color: var(--black);
+    border: none;
+    margin: 0;
+    padding: 0;
+    font-family: 'Hershey-Noailles-timesb', serif;
+    font-size: 14px;
+    line-height: 20px;
 }
-
+.entry-date {
+    flex: 0 0 auto;
+    font-family: 'Hershey-Noailles-timesb', serif;
+    font-size: 26px;
+    line-height: 40px;
+    color: var(--black);
+    text-decoration: none;
+    padding: 0;
+    margin: 10px 0 0 30px;
+}
 .carousel-cell-image {
-  position: relative;
-  top: -60px;
-  display: block;
-  margin: 0 auto;
-  max-width: 100%;
-  object-fit: cover;
-  height: 100vh;
-  height: calc(var(--vh, 1vh) * 100);
-  opacity: 0;
-  -webkit-transition: opacity 0.4s;
-          transition: opacity 0.4s;
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    object-fit: cover;
+    height: calc(100vh - 25% - 110px);
+    opacity: 0;
+    transition: opacity 0.4s;
 }
 .carousel-cell-image.flickity-lazyloaded,
 .carousel-cell-image.flickity-lazyerror {
   opacity: 1;
 }
 
-figcaption.entry-header {
-    position: absolute;
-    bottom: 0;
-    width: calc(100% + 2px);
-    background: #fff;
-    border: none;
-    margin: 0 -1px;
-    padding: 0 20px;
-}
-.entry-title {
-  margin: 10px 0 20px 0;
-  display: flex;
-}
-.entry-title a  {
-  flex: 0 1 auto;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  font-size: 18px;
-  font-weight: bold;
-  color: #f54321;
-  border-bottom: 1px dotted #f54321;
-  line-height: 20px;
-  text-decoration: none;
-}
 
 
 @media (min-width: 1440px) {

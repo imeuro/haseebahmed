@@ -35,7 +35,7 @@ get_header();
 		<?php
 		endif; ?>
 
-		<div class="carousel carousel-nav" data-flickity='{ "asNavFor": ".carousel-main", "contain": true, "pageDots": false, "lazyLoad": true }'>
+<!-- 		<div class="carousel carousel-nav" data-flickity='{ "asNavFor": ".carousel-main", "contain": true, "pageDots": false, "lazyLoad": true }'>
 			<?php if ( have_posts() ) :
 				while ( have_posts() ) :
 				the_post();
@@ -43,7 +43,7 @@ get_header();
 				endwhile;
 			endif; ?>
   		</div>
-		
+ -->		
 	</main><!-- #main -->
 
 <?php

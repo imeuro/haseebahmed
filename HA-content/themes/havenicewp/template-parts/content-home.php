@@ -17,20 +17,37 @@
 	$img_srcset = wp_get_attachment_image_srcset( $id, $size );
 	$title = get_the_title();
 	$alt = (get_post_meta($id, '_wp_attachment_image_alt')[0]) ? get_post_meta($id, '_wp_attachment_image_alt')[0] : $title;
+	$cat = get_the_category();
 
-	// the_post_thumbnail('medium_large', ['class' => 'carousel-cell-image', 'title' => get_the_title()]); 
-	?>
-	<img class="carousel-cell-image"
-  data-flickity-lazyload-srcset="<?php echo esc_attr( $img_srcset ); ?>" sizes="(min-width: 960px) 1920px, 100wv"
-  data-flickity-lazyload-src="walrus-large.jpg" />
-	<?php 
-	?>
+	$bordercat = ' border-color-'.$cat[0]->slug;
 
-	<figcaption class="entry-header">
-		<?php
-			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
-		?>
-	</figcaption><!-- .entry-header -->
+	// TODO:
+	// if (count($cat) == 1) {
+	// 	$bordercat = ' border-color-'.$cat[0]->slug;
+	// } else {
+	// 	// so'cazzi...
+	// 	$color = null;
+	// 	foreach ($cat as $cats) {
+	// 		$color = get
+	// 	}
+	// 	$bordercat = '" style="border-image-slice: 1; border-image-source: linear-gradient(90deg, red 0 40%, blue 60% 100%)';
+
+	// }
+	?>
+	<a class="glightbox<?php echo $bordercat ?>" href="<?php echo esc_url( get_permalink() ); ?>" rel="bookmark">
+		<div class="entry-header">
+			<?php the_excerpt(); ?>
+		</div>
+		<p class="entry-date"><?php the_date('d M'); ?></p>
+		<img class="carousel-cell-image" 
+			data-flickity-lazyload-srcset="<?php echo esc_attr( $img_srcset ); ?>" 
+			sizes="(min-width: 960px) 1920px, 100wv" 
+			data-flickity-lazyload-src="<?php echo $img_src; ?>" />
+
+
+		<!-- .entry-header -->
+
+	</a>
 
 <!-- 
 	<div class="entry-content">

@@ -874,23 +874,6 @@ textarea {
 	display: block;
 }
 
-/*--------------------------------------------------------------
-# Plugins
---------------------------------------------------------------*/
-
-/* Jetpack infinite scroll
---------------------------------------------- */
-
-/* Hide the Posts Navigation and the Footer when Infinite Scroll is in use. */
-.infinite-scroll .posts-navigation,
-.infinite-scroll.neverending .site-footer {
-	display: none;
-}
-
-/* Re-display the Theme Footer when Infinite Scroll has reached its end. */
-.infinity-end.neverending .site-footer {
-	display: block;
-}
 
 /*--------------------------------------------------------------
 # Utilities
@@ -967,3 +950,49 @@ textarea {
 	margin-right: auto;
 	margin-bottom: 1.5em;
 }
+
+
+/* Custom fonts
+--------------------------------------------- */
+@font-face {
+    font-family: 'Hershey-Noailles-timesb';
+    src: url('fonts/Hershey-Noailles-timesb.woff2') format('woff2'),
+        url('fonts/Hershey-Noailles-timesb.woff') format('woff'),
+        url('fonts/Hershey-Noailles-timesb.svg#Hershey-Noailles-timesb') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Hershey-Noailles-timesr';
+    src: url('fonts/Hershey-Noailles-timesr.woff2') format('woff2'),
+        url('fonts/Hershey-Noailles-timesr.woff') format('woff'),
+        url('fonts/Hershey-Noailles-timesr.svg#Hershey-Noailles-timesr') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Hershey-Noailles-futuram';
+    src: url('fonts/Hershey-Noailles-futuram.woff2') format('woff2'),
+        url('fonts/Hershey-Noailles-futuram.woff') format('woff'),
+        url('fonts/Hershey-Noailles-futuram.svg#Hershey-Noailles-futuram') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Hershey-Noailles-futurab';
+    src: url('fonts/Hershey-Noailles-futurab.woff2') format('woff2'),
+        url('fonts/Hershey-Noailles-futurab.woff') format('woff'),
+        url('fonts/Hershey-Noailles-futurab.svg#Hershey-Noailles-futurab') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+//// -> proceed to COMMON.CSS
+
