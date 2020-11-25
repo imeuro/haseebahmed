@@ -21,7 +21,7 @@ var flkty = new Flickity( mainCarousel, {
 });
 
 
-/* default implementation of Glightbox: 
+/* default implementation of Glightbox: */
 var lightbox = GLightbox({
 	skin: 'HAvenice',
 	touchNavigation: false,
@@ -30,9 +30,9 @@ var lightbox = GLightbox({
 	height: '80vh',
 	loop: false,
 	draggable: false,
-	autoplayVideos: true
+	autoplayVideos: false
 });
-*/
+
 
 document.addEventListener('DOMContentLoaded', (event) => {
 	var checkboxes = document.querySelectorAll("input[type=checkbox][name=categories],input[type=checkbox][name=tags]");

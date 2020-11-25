@@ -26,28 +26,29 @@
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'havenicewp' ); ?></a>
 
 	<header id="masthead" class="site-header">
+		<?php if (is_home() || is_front_page()) : ?>
+			<nav id="site-navigation" class="main-navigation">
 
-		<nav id="site-navigation" class="main-navigation">
+				<form class="primary-menu" method="GET" id="catMenu">
+					<?php
+						if( $terms = get_terms( array( 
+							'taxonomy' => 'category', 
+							'exclude' => 1,
+							'hide_empty' => false, 
+							'orderby' => 'ID' 
+						) ) ) : 
+				 
+							foreach ( $terms as $term ) :
+								$category = get_category( $term->term_id );
+								echo '<input class="color-' . $category->slug . '" type="checkbox" value="' . $term->term_id . '" id="menu-' . $term->name . '" name="categories" />';
+								echo '<label class="color-' . $category->slug . '" for="menu-' . $term->name . '">' . $term->name . '</label>';
+							endforeach;
+							echo '<div class="alignright"><a href="'.get_permalink( get_page_by_title( 'About' ) ).'">About</a></div>';
+						endif;
+					?>
+				</form>
 
-			<form class="primary-menu" method="GET" id="catMenu">
-				<?php
-					if( $terms = get_terms( array( 
-						'taxonomy' => 'category', 
-						'exclude' => 1,
-						'hide_empty' => false, 
-						'orderby' => 'ID' 
-					) ) ) : 
-			 
-						foreach ( $terms as $term ) :
-							$category = get_category( $term->term_id );
-							echo '<input class="color-' . $category->slug . '" type="checkbox" value="' . $term->term_id . '" id="menu-' . $term->name . '" name="categories" />';
-							echo '<label class="color-' . $category->slug . '" for="menu-' . $term->name . '">' . $term->name . '</label>';
-						endforeach;
-						echo '<div class="alignright"><a href="'.get_permalink( get_page_by_title( 'About' ) ).'">About</a></div>';
-					endif;
-				?>
-			</form>
-
-			<!-- <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php //esc_html_e( 'Categories:', 'havenicewp' ); ?></button> -->
-		</nav><!-- #site-navigation -->
+				<!-- <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php //esc_html_e( 'Categories:', 'havenicewp' ); ?></button> -->
+			</nav><!-- #site-navigation -->
+		<?php endif; ?>
 	</header><!-- #masthead -->

@@ -12,27 +12,29 @@
 ?>
 
 	<footer id="colophon" class="site-footer">
-		<nav id="steps-navigation" class="secondary-navigation">
+		<?php if (is_home() || is_front_page()) : ?>
+			<nav id="steps-navigation" class="secondary-navigation">
 
-			<form class="secondary-menu" method="GET" id="tagMenu">
-				<?php
-					if( $terms = get_terms( array( 
-						'taxonomy' => 'post_tag', 
-						'hide_empty' => false, 
-						'orderby' => 'ID' 
-					) ) ) : 
-			 
-						foreach ( $terms as $term ) :
-							echo '<input type="checkbox" value="' . $term->term_id . '" id="menu-' . $term->name . '" name="tags" />';
-							echo '<label for="menu-' . $term->name . '">' . $term->name . '</label>';
-						endforeach;
-						echo '<div class="alignright"><a id="clearAllFilters" name="clearAllFilters">clear filters</a></div>';
-					endif;
-				?>
-			</form>
+				<form class="secondary-menu" method="GET" id="tagMenu">
+					<?php
+						if( $terms = get_terms( array( 
+							'taxonomy' => 'post_tag', 
+							'hide_empty' => false, 
+							'orderby' => 'ID' 
+						) ) ) : 
+				 
+							foreach ( $terms as $term ) :
+								echo '<input type="checkbox" value="' . $term->term_id . '" id="menu-' . $term->name . '" name="tags" />';
+								echo '<label for="menu-' . $term->name . '">' . $term->name . '</label>';
+							endforeach;
+							echo '<div class="alignright"><a id="clearAllFilters" name="clearAllFilters">clear filters</a></div>';
+						endif;
+					?>
+				</form>
 
-			<!-- <button class="menu-toggle" aria-controls="secondary-menu" aria-expanded="false"><?php esc_html_e( 'Steps:', 'havenicewp' ); ?></button> -->
-		</nav><!-- #site-navigation -->	
+				<!-- <button class="menu-toggle" aria-controls="secondary-menu" aria-expanded="false"><?php esc_html_e( 'Steps:', 'havenicewp' ); ?></button> -->
+			</nav><!-- #site-navigation -->	
+		<?php endif; ?>
 	</footer><!-- #colophon -->
 	
 </div><!-- #page -->
