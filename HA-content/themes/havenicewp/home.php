@@ -37,16 +37,6 @@ get_header();
 
 		<?php
 		endif; ?>
-
-<!-- 		<div class="carousel carousel-nav" data-flickity='{ "asNavFor": ".carousel-main", "contain": true, "pageDots": false, "lazyLoad": true }'>
-			<?php if ( have_posts() ) :
-				while ( have_posts() ) :
-				the_post();
-				the_post_thumbnail('thumbnail', ['class' => 'carousel-cell', 'title' => get_the_title()]);
-				endwhile;
-			endif; ?>
-  		</div>
- -->		
 	</main><!-- #main -->
 
 <?php

@@ -1,6 +1,7 @@
 const mainCarousel = document.getElementById('Qtarget');
 const filterCatMenu = document.getElementById('catMenu');
 const filterTagMenu = document.getElementById('tagMenu');
+const filterClear = document.getElementById('clearAllFilters');
 
 
 /* 100vh fix for mobile browsers
@@ -14,12 +15,9 @@ document.documentElement.style.setProperty('--vh', `${vh}px`);
 
 /* start carousel instance */
 var flkty = new Flickity( mainCarousel, { 
-	setGallerySize: false, 
 	lazyLoad: 2, 
-	contain: true, 
 	pageDots: false, 
-	wrapAround: true, 
-	groupCells: false 
+	rightToLeft: true,
 });
 
 
@@ -39,10 +37,18 @@ var lightbox = GLightbox({
 document.addEventListener('DOMContentLoaded', (event) => {
 	var checkboxes = document.querySelectorAll("input[type=checkbox][name=categories],input[type=checkbox][name=tags]");
 	checkboxes.forEach(function(checkbox) {
-  		checkbox.addEventListener('change', function() {
-  			queryBE();
-  		});
-  	});
+		checkbox.addEventListener('change', function() {
+			queryBE();
+		});
+	});
+	filterClear.addEventListener('click', function() {
+		checkboxes.forEach(function(checkbox) {
+			console.debug(checkbox);
+			checkbox.checked=false;
+		});
+		queryBE();
+	});
+
 });
 
 
@@ -79,12 +85,9 @@ let genFE = (data,mainCarousel) => {
 	// write to target:
 	mainCarousel.innerHTML = out;
 	// reinit carousel
-	var flkty = new Flickity( mainCarousel, { 
-		setGallerySize: false, 
-		contain: true, 
+	var flkty = new Flickity( mainCarousel, {  
 		pageDots: false, 
-		wrapAround: true, 
-		groupCells: false 
+		rightToLeft: true, 
 	});
 }
 

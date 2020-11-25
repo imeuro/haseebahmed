@@ -13,8 +13,8 @@ function JQuery_ancheno() {
 add_action('init', 'JQuery_ancheno');
 
 
-// add categories_names field to wp rest api response:
-// https://wordpress.stackexchange.com/questions/287931/
+/* add categories_names field to wp rest api response:
+   https://wordpress.stackexchange.com/questions/287931/ */
 function wpse_287931_register_categories_names_field()
 {
     register_rest_field(

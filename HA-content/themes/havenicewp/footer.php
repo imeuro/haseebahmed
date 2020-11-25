@@ -26,7 +26,7 @@
 							echo '<input type="checkbox" value="' . $term->term_id . '" id="menu-' . $term->name . '" name="tags" />';
 							echo '<label for="menu-' . $term->name . '">' . $term->name . '</label>';
 						endforeach;
-						echo '<div class="alignright"><a name="clearFilters">clear filters</a></div>';
+						echo '<div class="alignright"><a id="clearAllFilters" name="clearAllFilters">clear filters</a></div>';
 					endif;
 				?>
 			</form>
