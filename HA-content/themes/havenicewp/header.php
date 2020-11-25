@@ -26,34 +26,28 @@
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'havenicewp' ); ?></a>
 
 	<header id="masthead" class="site-header">
-		<!--<div class="site-branding">
-			<?php
-			the_custom_logo();
-			if ( is_front_page() && is_home() ) :
-				?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-				<?php
-			else :
-				?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-				<?php
-			endif;
-			$havenicewp_description = get_bloginfo( 'description', 'display' );
-			if ( $havenicewp_description || is_customize_preview() ) :
-				?>
-				<p class="site-description"><?php echo $havenicewp_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
-			<?php endif; ?>
-		</div> .site-branding -->
 
 		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Categories:', 'havenicewp' ); ?></button>
-			<?php
-			wp_nav_menu(
-				array(
-					'theme_location' => 'menu-1',
-					'menu_id'        => 'primary-menu',
-				)
-			);
-			?>
+
+			<form class="primary-menu" method="GET" id="catMenu">
+				<?php
+					if( $terms = get_terms( array( 
+						'taxonomy' => 'category', 
+						'exclude' => 1,
+						'hide_empty' => false, 
+						'orderby' => 'ID' 
+					) ) ) : 
+			 
+						foreach ( $terms as $term ) :
+							$category = get_category( $term->term_id );
+							echo '<input class="color-' . $category->slug . '" type="checkbox" value="' . $term->term_id . '" id="menu-' . $term->name . '" name="categories" />';
+							echo '<label class="color-' . $category->slug . '" for="menu-' . $term->name . '">' . $term->name . '</label>';
+						endforeach;
+						echo '<div class="alignright"><a href="'.get_permalink( get_page_by_title( 'About' ) ).'">About</a></div>';
+					endif;
+				?>
+			</form>
+
+			<!-- <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php //esc_html_e( 'Categories:', 'havenicewp' ); ?></button> -->
 		</nav><!-- #site-navigation -->
 	</header><!-- #masthead -->

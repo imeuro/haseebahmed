@@ -16,7 +16,10 @@ get_header();
 ?>
 
 	<main id="primary" class="site-main">
-
+		<script>
+			const qPath = '<?php echo home_url() ?>/wp-json/wp/v2/posts';
+			const uPath = '<?php echo wp_get_upload_dir()["baseurl"] ?>';
+		</script>
 		<?php 
 		if ( have_posts() ) : ?>
 
@@ -24,7 +27,7 @@ get_header();
 				<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
 			</header>
 
-			<div class="carousel carousel-main" data-flickity='{ "setGallerySize": false, "lazyLoad": 2, "contain": true, "pageDots": false, "wrapAround": true, "groupCells": false }'>
+			<div id="Qtarget" class="carousel carousel-main">
 			<?php
 			while ( have_posts() ) :
 				the_post();

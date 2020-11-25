@@ -17,22 +17,23 @@
 	$img_srcset = wp_get_attachment_image_srcset( $id, $size );
 	$title = get_the_title();
 	$alt = (get_post_meta($id, '_wp_attachment_image_alt')[0]) ? get_post_meta($id, '_wp_attachment_image_alt')[0] : $title;
-	$cat = get_the_category();
+	$cat = get_the_category($post->id);
 
-	$bordercat = ' border-color-'.$cat[0]->slug;
+	if (count($cat) == 1) {
+		$bordercat = ' border-color-'.$cat[0]->slug;
+	} else {
+		// linear gradient...
+		$singlebordercat = null;
+		$bordercat = '" style="border-image-slice: 1; border-image-source: linear-gradient(90deg, ';
+		foreach ($cat as $cats) {
+			$singlecolor = get_field('category_color','category_'.$cats->cat_ID);
+			$singlebordercat .= $singlecolor.',';
+		}
+		$bordercat .= substr($singlebordercat, 0, -1);
+		$bordercat .= ')';
+		// $bordercat = '" style="border-image-slice: 1; border-image-source: linear-gradient(90deg, red 0 40%, blue 60% 100%)';
 
-	// TODO:
-	// if (count($cat) == 1) {
-	// 	$bordercat = ' border-color-'.$cat[0]->slug;
-	// } else {
-	// 	// so'cazzi...
-	// 	$color = null;
-	// 	foreach ($cat as $cats) {
-	// 		$color = get
-	// 	}
-	// 	$bordercat = '" style="border-image-slice: 1; border-image-source: linear-gradient(90deg, red 0 40%, blue 60% 100%)';
-
-	// }
+	}
 	?>
 	<a class="glightbox<?php echo $bordercat ?>" href="<?php echo esc_url( get_permalink() ); ?>" rel="bookmark">
 		<div class="entry-header">
@@ -48,37 +49,4 @@
 		<!-- .entry-header -->
 
 	</a>
-
-<!-- 
-	<div class="entry-content">
-		<?php
-		/*
-		the_content(
-			sprintf(
-				wp_kses(
-					__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'havenicewp' ),
-					array(
-						'span' => array(
-							'class' => array(),
-						),
-					)
-				),
-				wp_kses_post( get_the_title() )
-			)
-		);
-
-		wp_link_pages(
-			array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'havenicewp' ),
-				'after'  => '</div>',
-			)
-		);*/
-		?>
-	</div>
-
-	<footer class="entry-footer">
-		<?php // havenicewp_entry_footer(); ?>
-	</footer>
-
- -->
 </figure><!-- #post-<?php the_ID(); ?> -->

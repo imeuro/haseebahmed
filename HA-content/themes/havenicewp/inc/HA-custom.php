@@ -12,11 +12,49 @@ function JQuery_ancheno() {
 }
 add_action('init', 'JQuery_ancheno');
 
-function category_nav_class( $classes, $item ){
-    if( 'category' == $item->object ){
-        $category = get_category( $item->object_id );
-        $classes[] = 'color-' . $category->slug;
-    }
-    return $classes;
+
+// add categories_names field to wp rest api response:
+// https://wordpress.stackexchange.com/questions/287931/
+function wpse_287931_register_categories_names_field()
+{
+    register_rest_field(
+        array('post'),
+        'categories_slug',
+        array(
+            'get_callback'    => 'wpse_287931_get_categories_names',
+            'update_callback' => null,
+            'schema'          => null,
+        )
+    );
+    register_rest_field(
+        array('post'),
+        'categories_colors',
+        array(
+            'get_callback'    => 'wpse_287931_get_categories_colors',
+            'update_callback' => null,
+            'schema'          => null,
+        )
+    );
 }
-add_filter( 'nav_menu_css_class', 'category_nav_class', 10, 2 );
+
+add_action('rest_api_init', 'wpse_287931_register_categories_names_field');
+
+function wpse_287931_get_categories_names($object, $field_name, $request)
+{
+    $formatted_categories = array();
+    $categories = get_the_category($object['id']);
+    foreach ($categories as $category) {
+        $formatted_categories[] = $category->slug;
+    }
+    return $formatted_categories;
+}
+function wpse_287931_get_categories_colors($object, $field_name, $request)
+{
+    $colors_categories = array();
+    $categories = get_the_category($object['id']);
+
+    foreach ($categories as $category) {
+        $colors_categories[] = get_field('category_color','category_'.$category->cat_ID);
+    }
+    return $colors_categories;
+}

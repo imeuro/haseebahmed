@@ -42,8 +42,8 @@ header#masthead {
     align-items: center;
     justify-content: space-around;
 }
-.main-navigation ul#primary-menu,
-.secondary-navigation ul#secondary-menu {
+.main-navigation .primary-menu,
+.secondary-navigation .secondary-menu {
     list-style: none;
     width: 100%;
     padding: 0 20px;
@@ -54,59 +54,87 @@ header#masthead {
     justify-content: flex-start;
     background-color: #fff;
 }
-.main-navigation ul#primary-menu:before,
-.secondary-navigation ul#secondary-menu:before {
+.main-navigation .primary-menu:before,
+.secondary-navigation .secondary-menu:before {
   content:'Categories:';
   font-family: 'Hershey-Noailles-futurab',sans-serif;
   font-size: 17px;
   line-height: 26px;
   color: var(--black);
   display: inline-block;
-  margin: 5px 5px 10px 5px;
+  margin: 15px 5px 10px 5px;
   padding: 0px 8px;
 }
-.secondary-navigation ul#secondary-menu:before {
+.secondary-navigation .secondary-menu:before {
   content:'Steps:';
 }
-.main-navigation li,
-.secondary-navigation li {
+.main-navigation label,
+.secondary-navigation label {
     flex: 0 1 auto;
     text-align: center;
+    cursor: pointer;
 }
-.main-navigation li:last-child ,
-.secondary-navigation li:last-child { 
+.main-navigation .alignright,
+.secondary-navigation .alignright { 
   flex: 1 0 auto;
   text-align: right;
+  font-family: 'Hershey-Noailles-futurab', sans-serif;
+  font-size: 17px;
+  line-height: 26px;
+  display: inline-block;
+  color: var(--black);
+  transition: color 0.5s, background 0.5s;
+  margin: 15px 5px 10px 5px;
+  padding: 0px 8px;
 }
-.main-navigation li:hover,
-.secondary-navigation li:hover {
+.main-navigation .alignright a,
+.secondary-navigation .alignright a {
+    color: var(--black);
+    width: auto;
+    float: right;
+    cursor: pointer;
+    transition: color 0.5s, background 0.5s;
+}
+.main-navigation .alignright a:hover,
+.secondary-navigation .alignright a:hover {
+  color: var(--scirocco);
+}
+.main-navigation label:hover,
+.secondary-navigation label:hover {
   background: rgba(255,255,255,1);
 }
-.main-navigation li a,
-.secondary-navigation li a {
+.main-navigation label,
+.secondary-navigation label {
     font-family: 'Hershey-Noailles-futurab', sans-serif;
     font-size: 17px;
     line-height: 26px;
-    color: inherit;
     display: inline-block;
     transition: color 0.5s, background 0.5s;
-    margin: 5px 5px 10px 5px;
+    margin: 15px 5px 10px 5px;
     padding: 0px 8px;
     box-shadow: 0 0 5px #0007;
 }
-.main-navigation .color-scirocco a:hover,
-.main-navigation .color-scirocco.current-menu-item a { color: var(--white); background-color: var(--scirocco);}
-.main-navigation .color-acqua-alta a:hover,
-.main-navigation .color-acqua-alta.current-menu-item a { color: var(--white); background-color: var(--acqua-alta);}
-.main-navigation .color-mose a:hover,
-.main-navigation .color-mose.current-menu-item a { color: var(--white); background-color: var(--mose);}
-.main-navigation .color-fosgene a:hover,
-.main-navigation .color-fosgene.current-menu-item a { color: var(--white); background-color: var(--fosgene);}
-.main-navigation .color-tromba-daria a:hover,
-.main-navigation .color-tromba-daria.current-menu-item a { color: var(--white); background-color: var(--tromba-daria);}
-.main-navigation .color-sky a:hover,
-.main-navigation .color-sky.current-menu-item a { color: var(--white); background-color: var(--sky);}
-
+.main-navigation [type="checkbox"]:not(:checked),
+.main-navigation [type="checkbox"]:checked,
+.secondary-navigation [type="checkbox"]:not(:checked),
+.secondary-navigation [type="checkbox"]:checked {
+  position: absolute;
+  left: -9999px;
+}
+.main-navigation .color-scirocco:hover + label,
+.main-navigation .color-scirocco:checked + label { color: var(--white); background-color: var(--scirocco);}
+.main-navigation .color-acqua-alta:hover + label,
+.main-navigation .color-acqua-alta:checked + label { color: var(--white); background-color: var(--acqua-alta);}
+.main-navigation .color-mose:hover + label,
+.main-navigation .color-mose:checked + label { color: var(--white); background-color: var(--mose);}
+.main-navigation .color-fosgene:hover + label,
+.main-navigation .color-fosgene:checked + label { color: var(--white); background-color: var(--fosgene);}
+.main-navigation .color-tromba-daria:hover + label,
+.main-navigation .color-tromba-daria:checked + label { color: var(--white); background-color: var(--tromba-daria);}
+.main-navigation .color-sky:hover + label,
+.main-navigation .color-sky:checked + label { color: var(--white); background-color: var(--sky);}
+.secondary-navigation [type="checkbox"]:hover + label,
+.secondary-navigation [type="checkbox"]:checked + label { color: var(--white); background-color: var(--black);}
 
 /* home carousel */
 .carousel-main { 
@@ -128,8 +156,8 @@ header#masthead {
     flex-flow: row wrap;
     align-items: flex-start;
     justify-content: flex-start;
-    height: calc(100vh - 50px);
-    margin: 50px 0 0 0;
+    height: calc(100vh - 120px);
+    margin: 60px 0 0 0;
     text-decoration: none;
     border-top-width: 3px;
     border-top-style: solid;
@@ -142,7 +170,7 @@ header#masthead {
     color: var(--black);
     border: none;
     margin: 0;
-    padding: 0;
+    padding: 0 0 0 15px;
     font-family: 'Hershey-Noailles-timesb', serif;
     font-size: 14px;
     line-height: 20px;
@@ -150,8 +178,8 @@ header#masthead {
 .entry-date {
     flex: 0 0 auto;
     font-family: 'Hershey-Noailles-timesb', serif;
-    font-size: 26px;
-    line-height: 40px;
+    font-size: 22px;
+    line-height: 34px;
     color: var(--black);
     text-decoration: none;
     padding: 0;
@@ -162,12 +190,13 @@ header#masthead {
     margin: 0 auto;
     width: 100%;
     object-fit: cover;
-    height: calc(100vh - 25% - 110px);
+    height: calc(100vh - 25% - 120px);
     opacity: 0;
     transition: opacity 0.4s;
 }
 .carousel-cell-image.flickity-lazyloaded,
-.carousel-cell-image.flickity-lazyerror {
+.carousel-cell-image.flickity-lazyerror,
+.carousel-reloaded .carousel-cell-image  {
   opacity: 1;
 }
 
