@@ -219,7 +219,10 @@ header#masthead {
 .glightbox-HAvenice .goverlay {
     background: rgba(255,255,255,.92);
 }
-.glightbox-HAvenice .gslide-external { max-height: 100vh }
+.glightbox-HAvenice .gslide-external { 
+  max-height: 100vh; /* Fallback for below */
+  max-height: calc(var(--vh, 1vh) * 100);
+}
 .glightbox-HAvenice .gclose {
     position: fixed;
     top: -10px;
