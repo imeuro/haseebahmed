@@ -7,29 +7,68 @@
  * @package HAveniceWP
  */
 
+
+$id = get_post_thumbnail_id();
+$size = 'medium_large';
+$img_src = wp_get_attachment_image_url( $id, $size );
+$img_srcset = wp_get_attachment_image_srcset( $id, $size );
+$title = get_the_title();
+$alt = (get_post_meta($id, '_wp_attachment_image_alt')[0]) ? get_post_meta($id, '_wp_attachment_image_alt')[0] : $title;
+$cat = get_the_category($post->id);
+
+if (count($cat) == 1) {
+	$bordercat = ' background-color-'.$cat[0]->slug;
+} else {
+	// linear gradient...
+	$singlebordercat = null;
+	$bordercat = '" style="background-color: linear-gradient(90deg, ';
+	foreach ($cat as $cats) {
+		$singlecolor = get_field('category_color','category_'.$cats->cat_ID);
+		$singlebordercat .= $singlecolor.',';
+	}
+	$bordercat .= substr($singlebordercat, 0, -1);
+	$bordercat .= ')';
+	// $bordercat = '" style="border-image-slice: 1; border-image-source: linear-gradient(90deg, red 0 40%, blue 60% 100%)';
+
+}
+
+// gather all post images:     
+$allPostIMG = get_posts( array(
+    'post_type' => 'attachment',
+    'posts_per_page' => -1,
+    'post_parent' => $post->ID,
+    //'exclude'     => get_post_thumbnail_id()
+) );
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
+	<header class="post-entry-header<?php echo $bordercat ?>">
 		<?php
 		if ( is_singular() ) :
-			the_title( '<h1 class="entry-title">', '</h1>' );
+			echo '<h1 class="entry-title">';
+			the_title( '', '' );
+			echo " (";
+			the_date('d M');
+			echo ")</h1>";
 		else :
 			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
 		endif;
-
-		if ( 'post' === get_post_type() ) :
-			?>
-			<div class="entry-meta">
-				<?php
-				havenicewp_posted_on();
-				havenicewp_posted_by();
-				?>
-			</div><!-- .entry-meta -->
-		<?php endif; ?>
+		 ?>
 	</header><!-- .entry-header -->
 
-	<?php havenicewp_post_thumbnail(); ?>
+	<?php 
+	if ($allPostIMG && count($allPostIMG) > 1) {
+		echo '<div id="allPostIMG" class="carousel carousel-post">';
+		// a carousel with all the post images
+		foreach ( $allPostIMG as $PostIMG ) {
+			echo '<figure class="carousel-cell">'.wp_get_attachment_image( $PostIMG->ID, 'large', '', array( "class" => "img-responsive carousel-cell-image" ) ).'</figure>';
+        }
+        echo '</div>';
+	} else {
+		havenicewp_post_thumbnail();
+	}
+
+	?>
 
 	<div class="entry-content">
 		<?php
