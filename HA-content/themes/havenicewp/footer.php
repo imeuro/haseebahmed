@@ -16,6 +16,7 @@
 			<nav id="steps-navigation" class="secondary-navigation">
 
 				<button class="menu-toggle" aria-controls="secondary-navigation" aria-expanded="false"><?php esc_html_e( 'Steps', 'havenicewp' ); ?></button>
+				<button class="alignright"><a id="clearAllFilters" name="clearAllFilters">clear filters</a></button>
 
 				<form class="secondary-menu" method="GET" id="tagMenu">
 					<ul>
@@ -30,7 +31,6 @@
 								echo '<li><input type="checkbox" value="' . $term->term_id . '" id="menu-' . $term->name . '" name="tags" />';
 								echo '<label for="menu-' . $term->name . '">' . $term->name . '</label></li>';
 							endforeach;
-							echo '<li class="alignright"><a id="clearAllFilters" name="clearAllFilters">clear filters</a></li>';
 						endif;
 					?>
 					</ul>
