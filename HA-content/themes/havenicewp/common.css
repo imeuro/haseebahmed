@@ -287,6 +287,7 @@ footer.site-footer {
 .glightbox-HAvenice .gslide-external { 
   max-height: 100vh; /* Fallback for below */
   max-height: calc(var(--vh, 1vh) * 100);
+  max-height: 100%;
 }
 .glightbox-HAvenice .gclose {
   position: fixed;
