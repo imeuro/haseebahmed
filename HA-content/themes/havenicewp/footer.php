@@ -16,7 +16,6 @@
 		<nav id="steps-navigation" class="secondary-navigation">
 
 			<button class="menu-toggle" aria-controls="secondary-navigation" aria-expanded="false"><?php esc_html_e( 'Steps', 'havenicewp' ); ?></button>
-			<button class="alignright"><a id="clearAllFilters" name="clearAllFilters">clear filters</a></button>
 
 			<form class="secondary-menu" method="GET" id="tagMenu">
 				<ul>
@@ -37,6 +36,7 @@
 			</form>
 		</nav><!-- #site-navigation -->	
 		
+		<a id="clearAllFilters" class="alignright" name="clearAllFilters">clear filters</a>
 	</footer><!-- #colophon -->
 <?php endif; ?>
 </div><!-- #page -->
