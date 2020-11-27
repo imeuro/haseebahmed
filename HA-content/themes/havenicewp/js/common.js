@@ -1,4 +1,6 @@
 const bodyClassList = document.body.classList;
+let sw = document.body.offsetWidth;
+
 const mainCarousel = document.getElementById('Qtarget');
 const postCarousel = document.getElementById('allPostIMG');
 const filterCatMenu = document.getElementById('catMenu');
@@ -18,11 +20,13 @@ document.documentElement.style.setProperty('--vh', `${vh}px`);
 /*** for the homepage: ***/
 if (bodyClassList.contains('home')) {
 	/* start carousel instance */
-	var flkty = new Flickity( mainCarousel, { 
-		lazyLoad: 2, 
-		pageDots: false, 
-		rightToLeft: true,
-	});
+	// if (sw > 768) {
+		var flkty = new Flickity( mainCarousel, { 
+			pageDots: false, 
+			rightToLeft: true,
+			watchCSS: true
+		});
+	// }
 
 
 	/* default implementation of Glightbox: */
@@ -53,6 +57,11 @@ if (bodyClassList.contains('home')) {
 				checkbox.checked=false;
 			});
 			queryBE();
+		});
+		// reveal/hide tags filter
+		const filternav = document.getElementById('steps-navigation');
+		filternav.addEventListener('click', function() {
+			filternav.classList.toggle('toggled');
 		});
 
 	});
@@ -93,7 +102,8 @@ if (bodyClassList.contains('home')) {
 		// reinit carousel
 		var flkty = new Flickity( mainCarousel, {  
 			pageDots: false, 
-			rightToLeft: true, 
+			rightToLeft: true,
+			watchCSS: true
 		});
 		// reinit lightbox
 		var lightbox = GLightbox({
@@ -149,7 +159,19 @@ if (bodyClassList.contains('home')) {
 
 /*** for the post: ***/
 if (bodyClassList.contains('single-post')) {
-	/* start carousel instance */
+	/* start carousel instance w/ fullscreen addendum */
+	// <script src="https://unpkg.com/flickity-fullscreen@1/fullscreen.js"></script>
+	// <link rel="stylesheet" href="https://unpkg.com/flickity-fullscreen@1/fullscreen.css">
+	let addRes = document.createElement('script');
+	addRes.src = 'https://unpkg.com/flickity-fullscreen@1/fullscreen.js';
+	document.body.append(addRes);
+
+	addRes = document.createElement('link');
+	addRes.rel = 'stylesheet';
+	addRes.href = 'https://unpkg.com/flickity-fullscreen@1/fullscreen.css';
+	document.body.append(addRes);
+
+
 	var flkty = new Flickity( postCarousel, { 
   		fullscreen: true,
   		fade: true,

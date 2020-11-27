@@ -41,9 +41,9 @@
 		</div>
 		<p class="entry-date"><?php the_date('d M'); ?></p>
 		<img class="carousel-cell-image" 
-			data-flickity-lazyload-srcset="<?php echo esc_attr( $img_srcset ); ?>" 
+			srcset="<?php echo esc_attr( $img_srcset ); ?>" 
 			sizes="(min-width: 960px) 1920px, 100wv" 
-			data-flickity-lazyload-src="<?php echo $img_src; ?>" />
+			src="<?php echo $img_src; ?>" />
 
 
 		<!-- .entry-header -->

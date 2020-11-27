@@ -21,7 +21,7 @@ if (count($cat) == 1) {
 } else {
 	// linear gradient...
 	$singlebordercat = null;
-	$bordercat = '" style="background-color: linear-gradient(90deg, ';
+	$bordercat = '" style="background: linear-gradient(90deg, ';
 	foreach ($cat as $cats) {
 		$singlecolor = get_field('category_color','category_'.$cats->cat_ID);
 		$singlebordercat .= $singlecolor.',';
