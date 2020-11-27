@@ -35,7 +35,7 @@ if (bodyClassList.contains('home')) {
 		touchNavigation: false,
 		keyboardNavigation: false,
 		width: '100vw',
-		height: '100%',
+		height: '100vw',
 		loop: false,
 		draggable: false,
 		autoplayVideos: false,
