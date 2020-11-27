@@ -53,7 +53,6 @@ if (bodyClassList.contains('home')) {
 		});
 		filterClear.addEventListener('click', function() {
 			checkboxes.forEach(function(checkbox) {
-				console.debug(checkbox);
 				checkbox.checked=false;
 			});
 			queryBE();
