@@ -55,12 +55,13 @@ if (bodyClassList.contains('home')) {
 			checkboxes.forEach(function(checkbox) {
 				checkbox.checked=false;
 			});
+			filternav.parentNode.classList.remove('toggled');
 			queryBE();
 		});
 		// reveal/hide tags filter
-		const filternav = document.getElementById('steps-navigation');
+		const filternav = document.querySelector('#steps-navigation button');
 		filternav.addEventListener('click', function() {
-			filternav.classList.toggle('toggled');
+			filternav.parentNode.classList.toggle('toggled');
 		});
 
 	});
@@ -180,4 +181,58 @@ if (bodyClassList.contains('single-post')) {
 
 
 
+}
+
+/*** set/get cookie for landing page ***/
+function setCookie(name,value,days) {
+    var expires = "";
+    if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + (days*24*60*60*1000));
+        expires = "; expires=" + date.toUTCString();
+    }
+    document.cookie = name + "=" + (value || "")  + expires + "; path=/";
+}
+function getCookie(name) {
+    var nameEQ = name + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0;i < ca.length;i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1,c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+    }
+    return null;
+}
+function eraseCookie(name) {   
+    document.cookie = name +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+}
+
+if (bodyClassList.contains('home')) {
+	var HALanding_lightbox = GLightbox({
+		elements: [{
+            'href': 'https://localhost/haseebahmed/landing-page/'
+        }],
+		skin: 'HAvenice',
+		touchNavigation: false,
+		keyboardNavigation: false,
+		width: '100vw',
+		height: window.innerHeight,
+		loop: false,
+		draggable: false,
+		autoplayVideos: false,
+		closeButton: true,
+		closeOnOutsideClick: true
+	});
+
+	var HAcookie = getCookie('HALanding');
+	console.debug(HAcookie);
+	if (!HAcookie) {
+		setCookie('HALanding','1',365);
+		HALanding_lightbox.open();
+	} else if (HAcookie <= 10) {
+	    setCookie('HALanding',parseInt(HAcookie)+1,365);
+	    HALanding_lightbox.open();
+	} else {
+		setCookie('HALanding','done',365);
+	}
 }

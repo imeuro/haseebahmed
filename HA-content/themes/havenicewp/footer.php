@@ -27,8 +27,12 @@
 					) ) ) : 
 			 
 						foreach ( $terms as $term ) :
-							echo '<li><input type="checkbox" value="' . $term->term_id . '" id="menu-' . $term->name . '" name="tags" />';
-							echo '<label for="menu-' . $term->name . '">' . $term->name . '</label></li>';
+							if ($term->count == 0) {
+								echo '<li class="inactive"><label for="menu-' . $term->name . '">' . $term->name . '</label></li>';								
+							} else {
+								echo '<li><input type="checkbox" value="' . $term->term_id . '" id="menu-' . $term->name . '" name="tags" />';
+								echo '<label for="menu-' . $term->name . '">' . $term->name . '</label></li>';
+							}
 						endforeach;
 					endif;
 				?>

@@ -7,18 +7,57 @@
  * @package HAveniceWP
  */
 
+function the_related_links() {
+	$relateds = get_field('related_links',$post->ID);
+	//print_r($relateds);
+	if ($relateds) :
+		$out = '<ul class="relatedposts">';
+		foreach ($relateds as $related) {
+			$out .= '<li><a href="'.get_permalink($related->ID).'" title="'.$related->post_title.'">'.$related->post_title.'</a></li>';
+		}
+		$out .= '</ul>';
+	endif;
+
+	echo $out;
+}
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
-		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+	<header class="post-entry-header">
+		<?php
+		if ( is_singular() ) :
+			the_title( '<h1 class="entry-title">', '</h1>' );
+		else :
+			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
+		endif;
+		 ?>
 	</header><!-- .entry-header -->
 
-	<?php havenicewp_post_thumbnail(); ?>
+	
+	<div id="allPostIMG" class="carousel carousel-post">
+		<?php havenicewp_post_thumbnail(); ?>
+		<div class="extra_content"><?php the_field('extra_content'); ?></div>
+		<div class="related_links"><?php the_related_links(); ?></div>
+	</div>
+
+
 
 	<div class="entry-content">
 		<?php
-		the_content();
+		the_content(
+			sprintf(
+				wp_kses(
+					/* translators: %s: Name of current post. Only visible to screen readers */
+					__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'havenicewp' ),
+					array(
+						'span' => array(
+							'class' => array(),
+						),
+					)
+				),
+				wp_kses_post( get_the_title() )
+			)
+		);
 
 		wp_link_pages(
 			array(
@@ -29,26 +68,7 @@
 		?>
 	</div><!-- .entry-content -->
 
-	<?php if ( get_edit_post_link() ) : ?>
-		<footer class="entry-footer">
-			<?php
-			edit_post_link(
-				sprintf(
-					wp_kses(
-						/* translators: %s: Name of current post. Only visible to screen readers */
-						__( 'Edit <span class="screen-reader-text">%s</span>', 'havenicewp' ),
-						array(
-							'span' => array(
-								'class' => array(),
-							),
-						)
-					),
-					wp_kses_post( get_the_title() )
-				),
-				'<span class="edit-link">',
-				'</span>'
-			);
-			?>
-		</footer><!-- .entry-footer -->
-	<?php endif; ?>
+	<footer class="entry-footer">
+		<?php havenicewp_entry_footer(); ?>
+	</footer><!-- .entry-footer -->
 </article><!-- #post-<?php the_ID(); ?> -->

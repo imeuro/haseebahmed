@@ -142,6 +142,10 @@ footer.site-footer {
   box-shadow: 0 0 5px #0007;
   background-color: var(--white);
 }
+.secondary-navigation .inactive label {
+    opacity: 0.25;
+    box-shadow: none;
+}
 .main-navigation [type="checkbox"]:not(:checked),
 .main-navigation [type="checkbox"]:checked,
 .secondary-navigation [type="checkbox"]:not(:checked),
@@ -399,8 +403,9 @@ footer.site-footer {
   }
 }
 
-/* single post */
-.single-post article {
+/* single post / page */
+.single-post article,
+.page article {
   display: flex;
   flex-flow: row wrap;
   align-items: flex-start;
@@ -420,39 +425,47 @@ footer.site-footer {
   line-height: 20px;
   padding-right: 80px;
 }
-.single-post .carousel-post {
+.single-post .carousel-post,
+.page .carousel-post {
   flex: 1 0 100%;
   height: auto;
 }
-.single-post .flickity-viewport {
+.single-post .flickity-viewport,
+.page .flickity-viewport  {
   transition: height 0.2s;
 }
-.single-post .carousel-cell {
+.single-post .carousel-cell,
+.page .carousel-cell {
   margin: 0;
   padding: 0;
   width: 100%;
 }
-.single-post .carousel-cell img {
+.single-post .carousel-cell img,
+.page .carousel-cell img {
   width: 100%;
   height: auto;
   display: inline-block;
 }
 
-.single-post .flickity-page-dots {
+.single-post .flickity-page-dots,
+.page .flickity-page-dots {
   font-size: 12px;
   line-height: 16px;
   counter-reset: figs;
 }
-.single-post .flickity-page-dots .dot { 
+.single-post .flickity-page-dots .dot,
+.page .flickity-page-dots .dot { 
   opacity: 1; 
   color: var(--grey);
   background:none;
   margin: 0 3px;
 }
-.single-post .flickity-page-dots .dot.is-selected { 
+.single-post .flickity-page-dots .dot.is-selected,
+.page .flickity-page-dots .dot.is-selected { 
   color: var(--black)
 }
-.single-post .flickity-page-dots li:first-child:before {
+.single-post .flickity-page-dots li:first-child:before,
+.page .flickity-page-dots li:first-child:before {
   content: 'Fig. ';
   color: var(--black);
   position: relative;
@@ -461,15 +474,70 @@ footer.site-footer {
   font-size: 12px;
   display: inline-block;
 }
-.single-post .flickity-page-dots li:after {
+.single-post .flickity-page-dots li:after,
+.page .flickity-page-dots li:after {
   counter-increment: figs;
   content: counter(figs);
   display: inline-block;
 }
-.single-post .entry-content {
+.single-post .entry-content,
+.page .entry-content {
   margin: 20px 5vw;
   font-size: 12px;
 }
+
+.extra_content p {
+  font-size: 12px;
+  line-height: 16px;
+  text-align: justify;
+  font-weight: 700;
+}
+.extra_content > p:first-child {
+   -webkit-column-count: 2;
+      -moz-column-count: 2;
+           column-count: 2;
+   -webkit-column-gap: 20px;
+      -moz-column-gap: 20px;
+           column-gap: 20px;
+}
+.extra_content pre {
+    background: transparent;
+    padding: 0;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: center;
+    max-width: 100%;
+    overflow: hidden;
+}
+.extra_content pre img {
+    flex: 0 0 33%;
+    min-width: 75px;
+    width: 33%;
+    padding: 0 30px 0 0;
+    box-sizing: border-box;
+}
+
+.related_links ul.relatedposts {
+    list-style: none;
+    margin: 0;
+    padding: 10px 0;
+    font-size: 14px;
+    line-height: 18px;
+}
+.related_links ul.relatedposts:before {
+  content: 'This post relates to:';
+  font-weight: 700;
+  display: block;
+}
+.related_links ul.relatedposts a {
+  text-decoration: none;
+  color: var(--black);
+}
+.related_links ul.relatedposts a:before {
+  content: "\2014\a0";
+}
+
 
 @media (min-width: 769px) {
   .post-entry-header {
@@ -477,7 +545,8 @@ footer.site-footer {
     flex: 1 0 100%;
     width: 100%;
   }
-  .single-post .carousel-post {
+  .single-post .carousel-post,
+  .page .carousel-post {
     order: 2;
     flex: 0 0 50%;
     margin: 0;
@@ -491,14 +560,16 @@ footer.site-footer {
   .flickity-prev-next-button.previous {
     left: 30px;
   }
-  .single-post .entry-content {
+  .single-post .entry-content,
+  .page .entry-content {
     order: 1;
     flex: 0 0 50%;
     box-sizing: border-box;
     margin: 0;
     padding: 20px;
   }
-  .single-post .entry-footer {
+  .single-post .entry-footer,
+  .page .entry-footer {
     order: 3;
     flex: 0 0 100%;
   }

@@ -8,12 +8,12 @@
  */
 
 
-$id = get_post_thumbnail_id();
-$size = 'medium_large';
-$img_src = wp_get_attachment_image_url( $id, $size );
-$img_srcset = wp_get_attachment_image_srcset( $id, $size );
-$title = get_the_title();
-$alt = (get_post_meta($id, '_wp_attachment_image_alt')[0]) ? get_post_meta($id, '_wp_attachment_image_alt')[0] : $title;
+// $id = get_post_thumbnail_id();
+// $size = 'medium_large';
+// $img_src = wp_get_attachment_image_url( $id, $size );
+// $img_srcset = wp_get_attachment_image_srcset( $id, $size );
+// $title = get_the_title();
+// $alt = (get_post_meta($id, '_wp_attachment_image_alt')[0]) ? get_post_meta($id, '_wp_attachment_image_alt')[0] : $title;
 $cat = get_the_category($post->id);
 
 if (count($cat) == 1) {
