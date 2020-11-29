@@ -19,6 +19,7 @@ get_header();
 		<script>
 			const qPath = '<?php echo home_url() ?>/wp-json/wp/v2/posts';
 			const uPath = '<?php echo wp_get_upload_dir()["baseurl"] ?>';
+			const hPath = '<?php echo home_url() ?>';
 		</script>
 		<?php 
 		if ( have_posts() ) : ?>

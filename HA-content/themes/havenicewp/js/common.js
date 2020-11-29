@@ -210,7 +210,7 @@ function eraseCookie(name) {
 if (bodyClassList.contains('home')) {
 	var HALanding_lightbox = GLightbox({
 		elements: [{
-            'href': uPath+'/landing-page/'
+            'href': hPath+'/landing-page/'
         }],
 		skin: 'HAvenice',
 		touchNavigation: false,
