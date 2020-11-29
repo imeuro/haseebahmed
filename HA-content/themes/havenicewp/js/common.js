@@ -210,7 +210,7 @@ function eraseCookie(name) {
 if (bodyClassList.contains('home')) {
 	var HALanding_lightbox = GLightbox({
 		elements: [{
-            'href': 'https://localhost/haseebahmed/landing-page/'
+            'href': uPath+'/landing-page/'
         }],
 		skin: 'HAvenice',
 		touchNavigation: false,
