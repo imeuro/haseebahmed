@@ -33,12 +33,14 @@ function the_related_links() {
 		 ?>
 	</header><!-- .entry-header -->
 
-	
-	<div id="allPostIMG" class="carousel carousel-post">
-		<?php havenicewp_post_thumbnail(); ?>
-		<div class="extra_content"><?php the_field('extra_content'); ?></div>
-		<div class="related_links"><?php the_related_links(); ?></div>
-	</div>
+	<?php 
+	if( get_field('extra_content') || get_field('related_links') || get_the_post_thumbnail() ) : ?>
+		<div id="allPostIMG" class="carousel carousel-post">
+			<?php havenicewp_post_thumbnail(); ?>
+			<div class="extra_content"><?php the_field('extra_content'); ?></div>
+			<div class="related_links"><?php the_related_links(); ?></div>
+		</div>
+	<?php endif; ?>
 
 
 

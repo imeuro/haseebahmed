@@ -31,6 +31,7 @@ html,body { height: 100%; }
 .background-color-fosgene { background-color: var(--fosgene);}
 .background-color-tromba-daria { background-color: var(--tromba-daria);}
 .background-color-sky { background-color: var(--sky);}
+.background-color-uncategorized { background-color: var(--grey);}
 
 .mobile-only { display: inline-block !important; }
 .desktop-only { display: none !important; }
@@ -298,10 +299,10 @@ footer.site-footer {
 }
 .glightbox-HAvenice .gclose {
   position: fixed;
-  top: -14px;
+  top: 0;
   right: -2px;
   width: 100px;
-  height: 60px;
+  height: 35px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -416,6 +417,9 @@ footer.site-footer {
   .carousel-reloaded .carousel-cell-image  {
     opacity: 1;
   }
+  .glightbox-HAvenice .gclose {
+    height: 50px;
+  }
 }
 @media (min-width: 1440px) {
   .carousel-main .carousel-cell {
@@ -432,6 +436,10 @@ footer.site-footer {
   align-items: flex-start;
   justify-content: space-around;
 }
+.page .post-entry-header {
+  color: var(--black);
+  background-color: var(--grey);
+}
 .post-entry-header {
   color: var(--white);
   border: none;
@@ -445,6 +453,7 @@ footer.site-footer {
   font-size: 16px;
   line-height: 20px;
   padding-right: 80px;
+  margin-top: 10px;
 }
 .single-post .carousel-post,
 .page .carousel-post {
@@ -501,6 +510,10 @@ footer.site-footer {
   content: counter(figs);
   display: inline-block;
 }
+.carousel.is-fullscreen .carousel-cell {
+  height: 100%;
+}
+
 .single-post .entry-content,
 .page .entry-content {
   margin: 20px 5vw;
@@ -565,6 +578,10 @@ footer.site-footer {
     order: 0;
     flex: 1 0 100%;
     width: 100%;
+    min-height: 50px;
+  }
+  .post-entry-header .entry-title {
+    margin-top: 16px;
   }
   .single-post .carousel-post,
   .page .carousel-post {
@@ -593,5 +610,6 @@ footer.site-footer {
   .page .entry-footer {
     order: 3;
     flex: 0 0 100%;
+    text-align: center;
   }
 }

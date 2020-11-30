@@ -78,9 +78,6 @@ function havenicewp_scripts() {
 	wp_enqueue_style( 'flickity', get_template_directory_uri() . '/css/flickity.min.css', array(), _S_VERSION);
 	wp_enqueue_style( 'glightbox', get_template_directory_uri() . '/css/glightbox.min.css', array(), _S_VERSION);
 	wp_enqueue_style( 'havenicewp-common', get_template_directory_uri() . '/css/common.css', array('havenicewp-style'), _S_VERSION);
-	if (is_single()) {
-		wp_enqueue_style( 'flickity-fullscreen', get_template_directory_uri() . '/css/flickity-fullscreen.css', array('havenicewp-style'), _S_VERSION);
-	}
 
 
 	wp_enqueue_script( 'havenicewp-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
@@ -88,7 +85,8 @@ function havenicewp_scripts() {
 	wp_enqueue_script( 'glightbox', get_template_directory_uri() . '/js/glightbox.min.js', array('flickity'), '', true);
 	wp_enqueue_script( 'havenicewp-common', get_template_directory_uri() . '/js/common.js', array('glightbox'), _S_VERSION, true);
 	if (is_single()) {
-		wp_enqueue_script( 'havenicewp-common', get_template_directory_uri() . '/js/flickity-fullscreen.js', array('flickity'), _S_VERSION, true);
+		wp_enqueue_style( 'flickity-fullscreen', get_template_directory_uri() . '/css/flickity-fullscreen.css', array('havenicewp-style'), _S_VERSION);
+		wp_enqueue_script( 'flickity-fullscreen', get_template_directory_uri() . '/js/flickity-fullscreen.js', array('flickity'), _S_VERSION, true);
 	}
 
 
