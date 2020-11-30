@@ -7,13 +7,6 @@
  * @package HAveniceWP
  */
 
-
-// $id = get_post_thumbnail_id();
-// $size = 'medium_large';
-// $img_src = wp_get_attachment_image_url( $id, $size );
-// $img_srcset = wp_get_attachment_image_srcset( $id, $size );
-// $title = get_the_title();
-// $alt = (get_post_meta($id, '_wp_attachment_image_alt')[0]) ? get_post_meta($id, '_wp_attachment_image_alt')[0] : $title;
 $cat = get_the_category($post->id);
 
 if (count($cat) == 1) {
@@ -37,7 +30,6 @@ $allPostIMG = get_posts( array(
     'post_type' => 'attachment',
     'posts_per_page' => -1,
     'post_parent' => $post->ID,
-    //'exclude'     => get_post_thumbnail_id()
 ) );
 ?>
 
@@ -87,16 +79,10 @@ $allPostIMG = get_posts( array(
 			)
 		);
 
-		wp_link_pages(
-			array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'havenicewp' ),
-				'after'  => '</div>',
-			)
-		);
 		?>
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer">
-		<?php havenicewp_entry_footer(); ?>
+		<?php edit_post_link('Edit this post'); ?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-<?php the_ID(); ?> -->

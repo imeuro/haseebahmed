@@ -7,7 +7,6 @@ const filterCatMenu = document.getElementById('catMenu');
 const filterTagMenu = document.getElementById('tagMenu');
 const filterClear = document.getElementById('clearAllFilters');
 
-
 /* 100vh fix for mobile browsers
    https://css-tricks.com/the-trick-to-viewport-units-on-mobile/ */
 let vh = window.innerHeight * 0.01;
@@ -24,7 +23,8 @@ if (bodyClassList.contains('home')) {
 		var flkty = new Flickity( mainCarousel, { 
 			pageDots: false, 
 			rightToLeft: true,
-			watchCSS: true
+			watchCSS: true,
+			arrowShape: 'm75.7576 83.986c0-1.4286-6.9697-9.8214-15.1515-18.5714l-15.4546-15.7143 15.4546-15.5357c15.4545-15.8929 18.1818-20.7143 11.2121-20.5358-6.6667.1786-47.5758 31.25-47.5758 36.0715 0 3.0357 7.8788 10 23.0303 20.7143 22.7273 16.0714 28.4849 18.75 28.4849 13.5714z'
 		});
 	// }
 
@@ -103,7 +103,8 @@ if (bodyClassList.contains('home')) {
 		var flkty = new Flickity( mainCarousel, {  
 			pageDots: false, 
 			rightToLeft: true,
-			watchCSS: true
+			watchCSS: true,
+			arrowShape: 'm75.7576 83.986c0-1.4286-6.9697-9.8214-15.1515-18.5714l-15.4546-15.7143 15.4546-15.5357c15.4545-15.8929 18.1818-20.7143 11.2121-20.5358-6.6667.1786-47.5758 31.25-47.5758 36.0715 0 3.0357 7.8788 10 23.0303 20.7143 22.7273 16.0714 28.4849 18.75 28.4849 13.5714z'
 		});
 		// reinit lightbox
 		var lightbox = GLightbox({
@@ -162,25 +163,22 @@ if (bodyClassList.contains('single-post')) {
 	/* start carousel instance w/ fullscreen addendum */
 	// <script src="https://unpkg.com/flickity-fullscreen@1/fullscreen.js"></script>
 	// <link rel="stylesheet" href="https://unpkg.com/flickity-fullscreen@1/fullscreen.css">
-	let addRes = document.createElement('script');
-	addRes.src = 'https://unpkg.com/flickity-fullscreen@1/fullscreen.js';
-	document.body.append(addRes);
+	// let addRes = document.createElement('script');
+	// addRes.src = 'https://unpkg.com/flickity-fullscreen@1/fullscreen.js';
+	// document.body.append(addRes);
 
-	addRes = document.createElement('link');
-	addRes.rel = 'stylesheet';
-	addRes.href = 'https://unpkg.com/flickity-fullscreen@1/fullscreen.css';
-	document.body.append(addRes);
+	// addRes = document.createElement('link');
+	// addRes.rel = 'stylesheet';
+	// addRes.href = 'https://unpkg.com/flickity-fullscreen@1/fullscreen.css';
+	// document.body.append(addRes);
 
 
 	var flkty = new Flickity( postCarousel, { 
-  		fullscreen: true,
   		fade: true,
   		adaptiveHeight: true,
-  		prevNextButtons: true
+  		prevNextButtons: true,
+  		arrowShape: 'm75.7576 83.986c0-1.4286-6.9697-9.8214-15.1515-18.5714l-15.4546-15.7143 15.4546-15.5357c15.4545-15.8929 18.1818-20.7143 11.2121-20.5358-6.6667.1786-47.5758 31.25-47.5758 36.0715 0 3.0357 7.8788 10 23.0303 20.7143 22.7273 16.0714 28.4849 18.75 28.4849 13.5714z'
 	});
-
-
-
 }
 
 /*** set/get cookie for landing page ***/

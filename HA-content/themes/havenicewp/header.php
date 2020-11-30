@@ -22,6 +22,11 @@
 
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
+<script>
+	const qPath = '<?php echo home_url() ?>/wp-json/wp/v2/posts';
+	const uPath = '<?php echo wp_get_upload_dir()["baseurl"] ?>';
+	const hPath = '<?php echo home_url() ?>';
+</script>
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'havenicewp' ); ?></a>
 	<?php if (is_home() || is_front_page()) : ?>

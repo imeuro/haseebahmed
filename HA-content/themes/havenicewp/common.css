@@ -245,6 +245,9 @@ footer.site-footer {
       position: initial;
       height: auto;
   }
+  #clearAllFilters {
+    bottom: 5px;
+  }
 }
 .carousel-main .carousel-cell { margin: 0; }
 .carousel-main .carousel-cell a {
