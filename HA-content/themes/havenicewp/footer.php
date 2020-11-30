@@ -10,7 +10,7 @@
  */
 
 ?>
-<?php if (is_home() || is_front_page()) : ?>
+<?php if (is_home() || is_front_page() || is_404()) : ?>
 	<footer id="colophon" class="site-footer">
 		
 		<nav id="steps-navigation" class="secondary-navigation">

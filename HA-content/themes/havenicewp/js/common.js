@@ -160,19 +160,6 @@ if (bodyClassList.contains('home')) {
 
 /*** for the post: ***/
 if (bodyClassList.contains('single-post')) {
-	/* start carousel instance w/ fullscreen addendum */
-	// <script src="https://unpkg.com/flickity-fullscreen@1/fullscreen.js"></script>
-	// <link rel="stylesheet" href="https://unpkg.com/flickity-fullscreen@1/fullscreen.css">
-	// let addRes = document.createElement('script');
-	// addRes.src = 'https://unpkg.com/flickity-fullscreen@1/fullscreen.js';
-	// document.body.append(addRes);
-
-	// addRes = document.createElement('link');
-	// addRes.rel = 'stylesheet';
-	// addRes.href = 'https://unpkg.com/flickity-fullscreen@1/fullscreen.css';
-	// document.body.append(addRes);
-
-
 	var flkty = new Flickity( postCarousel, { 
   		fade: true,
   		adaptiveHeight: true,

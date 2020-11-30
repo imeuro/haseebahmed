@@ -29,7 +29,7 @@
 </script>
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'havenicewp' ); ?></a>
-	<?php if (is_home() || is_front_page()) : ?>
+	<?php if (is_home() || is_front_page() || is_404()) : ?>
 		<header id="masthead" class="site-header">
 		
 			<nav id="site-navigation" class="main-navigation">

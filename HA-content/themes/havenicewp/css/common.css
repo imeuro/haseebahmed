@@ -319,12 +319,30 @@ footer.site-footer {
 
 
 /* home mobile: flickity carousel off */
-.home main { margin-top: 35px; }
+.home main,
+.error404 main { margin-top: 35px; }
 .carousel-main:after { content: ''; display: none; }
+
+.simpletextdiv {
+  height: calc(100vh - 60px);
+  height: calc((var(--vh, 1vh) * 100) - 60px);
+}
+.simpletextdiv-cell {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  margin: 0 5vw;
+  text-align: center;
+}
+.simpletextdiv-cell a { color: var(--black); }
+
 
 @media (min-width: 769px) {
   /* home desktop: flickity carousel on */ 
-  .home main { margin-top: 0; }
+  .home main,
+  .error404 main { margin-top: 0; }
   .carousel-main:after { content: 'flickity'; }
 
   .carousel-main .carousel-cell-image { opacity: 1 }
