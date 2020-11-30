@@ -7,19 +7,6 @@
  * @package HAveniceWP
  */
 
-function the_related_links() {
-	$relateds = get_field('related_links',$post->ID);
-	//print_r($relateds);
-	if ($relateds) :
-		$out = '<ul class="relatedposts">';
-		foreach ($relateds as $related) {
-			$out .= '<li><a href="'.get_permalink($related->ID).'" title="'.$related->post_title.'">'.$related->post_title.'</a></li>';
-		}
-		$out .= '</ul>';
-	endif;
-
-	echo $out;
-}
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>

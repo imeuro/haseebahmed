@@ -33,6 +33,7 @@ $allPostIMG = get_posts( array(
 ) );
 ?>
 
+
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="post-entry-header<?php echo $bordercat ?>">
 		<?php
@@ -48,19 +49,27 @@ $allPostIMG = get_posts( array(
 		 ?>
 	</header><!-- .entry-header -->
 
-	<?php 
-	if ($allPostIMG && count($allPostIMG) > 1) {
-		echo '<div id="allPostIMG" class="carousel carousel-post">';
-		// a carousel with all the post images
-		foreach ( $allPostIMG as $PostIMG ) {
-			echo '<figure class="carousel-cell">'.wp_get_attachment_image( $PostIMG->ID, 'large', '', array( "class" => "img-responsive carousel-cell-image" ) ).'</figure>';
-        }
-        echo '</div>';
-	} else {
-		havenicewp_post_thumbnail();
-	}
+	<div class="sideinfo">
+		<?php 
+		if ($allPostIMG && count($allPostIMG) > 1) {
+			echo '<div id="allPostIMG" class="carousel carousel-post">';
+			// a carousel with all the post images
+			foreach ( $allPostIMG as $PostIMG ) {
+				echo '<figure class="carousel-cell">'.wp_get_attachment_image( $PostIMG->ID, 'large', '', array( "class" => "img-responsive carousel-cell-image" ) ).'</figure>';
+	        }
+	        echo '</div>';
+		} else {
+			havenicewp_post_thumbnail();
+		}
+		?>
 
-	?>
+		<?php 
+		if( get_field('extra_content') || get_field('related_links') || get_the_post_thumbnail() ) : ?>
+			<div class="extra_content"><?php the_field('extra_content'); ?></div>
+			<div class="related_links"><?php the_related_links(); ?></div>
+		<?php endif; ?>
+	</div>
+
 
 	<div class="entry-content">
 		<?php

@@ -163,3 +163,22 @@ if ( ! function_exists( 'wp_body_open' ) ) :
 		do_action( 'wp_body_open' );
 	}
 endif;
+
+
+if ( ! function_exists( 'the_related_links' ) ) :
+	function the_related_links() {
+		$relateds = get_field('related_links',$post->ID);
+		//print_r($relateds);
+		if ($relateds) :
+			$out = '<ul class="relatedposts">';
+			foreach ($relateds as $related) {
+				$cat = get_the_category($related->ID)[0];
+				//print_r($cat);
+				$out .= '<li><a class="color-'.$cat->slug.'" href="'.get_permalink($related->ID).'" title="'.$related->post_title.'">'.$related->post_title.'</a></li>';
+			}
+			$out .= '</ul>';
+		endif;
+
+		echo $out;
+	}
+endif;
