@@ -98,5 +98,5 @@ add_action( 'wp_enqueue_scripts', 'havenicewp_scripts' );
 
 
 /* custom functions for HAveniceWP theme */
-require get_template_directory() . '/inc/template-functions.php';
+require get_template_directory() . '/inc/template-tags.php';
 require get_template_directory() . '/inc/HA-custom.php';
