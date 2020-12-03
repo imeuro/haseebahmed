@@ -25,12 +25,8 @@ if (count($cat) == 1) {
 
 }
 
-// gather all post images:     
-$allPostIMG = get_posts( array(
-    'post_type' => 'attachment',
-    'posts_per_page' => -1,
-    'post_parent' => $post->ID,
-) );
+$allPostIMG = get_field('attached_images',$post->ID);
+$thumbnailID = get_post_thumbnail_id($post->ID)
 ?>
 
 
@@ -50,13 +46,20 @@ $allPostIMG = get_posts( array(
 	</header><!-- .entry-header -->
 
 	<?php 
-	if ($allPostIMG && count($allPostIMG) > 1) {
+	if ($allPostIMG) {
 		echo '<div id="allPostIMG" class="carousel carousel-post">';
 		// a carousel with all the post images
+
+		// codice per mostrare la post_thumbnail:
+		// echo '<figure class="carousel-cell">'.get_the_post_thumbnail( $post->ID, 'large', '', array( "class" => "img-responsive carousel-cell-image" ) );
+		// echo '<figcaption>'.wp_get_attachment_caption( $thumbnailID ).'</figcaption></figure>';
+		
 		foreach ( $allPostIMG as $PostIMG ) {
-			echo '<figure class="carousel-cell">'.wp_get_attachment_image( $PostIMG->ID, 'large', '', array( "class" => "img-responsive carousel-cell-image" ) ).'</figure>';
+			echo '<figure class="carousel-cell">'.wp_get_attachment_image( $PostIMG["attached_image"], 'large', '', array( "class" => "img-responsive carousel-cell-image" ) );
+			echo '<figcaption>'. $PostIMG["attached_caption"] .'</figcaption></figure>';
         }
         echo '</div>';
+
 	} else {
 		havenicewp_post_thumbnail();
 	}
