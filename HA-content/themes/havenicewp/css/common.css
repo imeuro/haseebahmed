@@ -533,7 +533,12 @@ footer.site-footer {
   margin: 20px 5vw;
   font-size: 12px;
 }
-
+.entry-content pre.wp-block-preformatted {
+    background: transparent;
+    font-family: 'Hershey-Noailles-timesr', serif;
+    font-size: 9px;
+    white-space: pre-wrap;
+}
 .extra_content p {
   font-size: 12px;
   line-height: 16px;
