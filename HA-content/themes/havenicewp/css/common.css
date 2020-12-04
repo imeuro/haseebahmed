@@ -654,3 +654,15 @@ footer.site-footer {
     margin: 10px 0;
   }
 }
+
+a.post-edit-link {
+    font-size: 12px;
+    line-height: 12px;
+    font-family: 'Hershey-Noailles-futurab';
+    text-decoration: none;
+    margin: 20px;
+    padding: 5px 5px;
+    display: inline-block;
+    background-color: #fff400a1;
+    float: right;
+}

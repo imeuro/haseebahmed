@@ -65,7 +65,7 @@ $thumbnailID = get_post_thumbnail_id($post->ID)
 				else :
 					$caption = wp_get_attachment_caption($PostIMG["attached_image"]);
 				endif;
-				
+
 				echo '<figcaption>'. $caption .'</figcaption></figure>';
 	        }
 	    endif;
@@ -95,6 +95,8 @@ $thumbnailID = get_post_thumbnail_id($post->ID)
 
 		?>
 
+		<?php edit_post_link('Edit this post'); ?>
+
 		<?php 
 		if( get_field('extra_content') ) : ?>
 			<div class="extra_content"><?php the_field('extra_content'); ?></div>
@@ -105,7 +107,5 @@ $thumbnailID = get_post_thumbnail_id($post->ID)
 		<?php if( get_field('related_links') ) : ?>
 			<div class="related_links"><?php the_related_links(); ?></div>
 		<?php endif; ?>
-
-		<?php edit_post_link('Edit this post'); ?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-<?php the_ID(); ?> -->
