@@ -493,6 +493,7 @@ footer.site-footer {
 .carousel-post #caption {
   font-size: 12px;
   margin: 0 10px;
+  text-align: center;
 }
 .carousel-cell figcaption { display: none; }
 
