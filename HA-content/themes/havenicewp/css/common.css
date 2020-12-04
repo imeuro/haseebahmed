@@ -584,7 +584,7 @@ footer.site-footer {
 
 .related_links ul.relatedposts {
   list-style: none;
-  margin: 10px 0;
+  margin: 10px 5vw;
   padding: 10px 0;
   font-size: 14px;
   line-height: 18px;
@@ -649,5 +649,8 @@ footer.site-footer {
     padding: 0 20px;
     position: sticky;
     bottom: 0;
+  }
+  .related_links ul.relatedposts {
+    margin: 10px 0;
   }
 }
