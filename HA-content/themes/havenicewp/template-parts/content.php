@@ -87,13 +87,16 @@ $thumbnailID = get_post_thumbnail_id($post->ID)
 		?>
 
 		<?php 
-		if( get_field('extra_content') || get_field('related_links') ) : ?>
+		if( get_field('extra_content') ) : ?>
 			<div class="extra_content"><?php the_field('extra_content'); ?></div>
-			<div class="related_links"><?php the_related_links(); ?></div>
 		<?php endif; ?>
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer">
+		<?php if( get_field('related_links') ) : ?>
+			<div class="related_links"><?php the_related_links(); ?></div>
+		<?php endif; ?>
+
 		<?php edit_post_link('Edit this post'); ?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-<?php the_ID(); ?> -->

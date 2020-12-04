@@ -35,7 +35,7 @@
 			<nav id="site-navigation" class="main-navigation">
 
 				<button class="menu-toggle" aria-controls="site-navigation" aria-expanded="false"><?php esc_html_e( 'Categories', 'havenicewp' ); ?></button>
-				<button class="alignright"><a class="glightbox" href="<?php echo get_permalink( get_page_by_title( 'About' ) ) ?>">About</a></button>
+				<button class="alignright"><a class="glightbox" href="<?php echo get_permalink($post=2) ?>">About</a></button>
 				<form class="primary-menu" method="GET" id="catMenu">
 					<ul>
 					<?php

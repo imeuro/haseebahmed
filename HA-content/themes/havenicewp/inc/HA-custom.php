@@ -19,6 +19,15 @@ function wpse_287931_register_categories_names_field()
 {
     register_rest_field(
         array('post'),
+        'pubdate',
+        array(
+            'get_callback'    => 'wpse_287931_get_date',
+            'update_callback' => null,
+            'schema'          => null,
+        )
+    );
+    register_rest_field(
+        array('post'),
         'categories_slug',
         array(
             'get_callback'    => 'wpse_287931_get_categories_names',
@@ -39,6 +48,11 @@ function wpse_287931_register_categories_names_field()
 
 add_action('rest_api_init', 'wpse_287931_register_categories_names_field');
 
+function wpse_287931_get_date($object, $field_name, $request)
+{
+    $post_date = get_the_date('d M',$object['id']);
+    return $post_date;
+}
 function wpse_287931_get_categories_names($object, $field_name, $request)
 {
     $formatted_categories = array();

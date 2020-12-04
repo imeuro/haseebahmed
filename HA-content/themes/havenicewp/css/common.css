@@ -12,13 +12,20 @@ a:visited { color: inherit; }
   --tromba-daria:     #ff00ff;
   --sky:              #0098ff;
 }
-.color-scirocco { color: var(--scirocco) }
-.color-acqua-alta { color: var(--acqua-alta) }
-.color-mose { color: var(--mose);}
-.color-fosgene { color: var(--fosgene) }
-.color-tromba-daria { color: var(--tromba-daria) }
-.color-sky { color: var(--sky) }
-.color-uncategorized { color: var(--grey) }
+.color-scirocco,
+a.color-scirocco { color: var(--scirocco) }
+.color-acqua-alta,
+a.color-acqua-alta { color: var(--acqua-alta) }
+.color-mose,
+a.color-mose { color: var(--mose);}
+.color-fosgene,
+a.color-fosgene { color: var(--fosgene) }
+.color-tromba-daria,
+a.color-tromba-daria { color: var(--tromba-daria) }
+.color-sky,
+a.color-sky { color: var(--sky) }
+.color-uncategorized,
+a.color-uncategorized { color: var(--grey) }
 
 .border-color-scirocco { border-color: var(--scirocco);}
 .border-color-acqua-alta { border-color: var(--acqua-alta);}
@@ -534,10 +541,11 @@ footer.site-footer {
   font-size: 12px;
 }
 .entry-content pre.wp-block-preformatted {
-    background: transparent;
-    font-family: 'Hershey-Noailles-timesr', serif;
-    font-size: 9px;
-    white-space: pre-wrap;
+  background: transparent;
+  font-family: 'Hershey-Noailles-timesr', serif;
+  font-size: 9px;
+  white-space: pre-wrap;
+  padding: 20px 0 0 0;
 }
 .extra_content p {
   font-size: 12px;
@@ -566,19 +574,19 @@ footer.site-footer {
   overflow: hidden;
 }
 .extra_content pre img {
-    flex: 0 0 33%;
-    min-width: 75px;
-    width: 33%;
-    padding: 0 30px 0 0;
-    box-sizing: border-box;
+  flex: 0 0 33%;
+  min-width: 75px;
+  width: 33%;
+  padding: 0 30px 0 0;
+  box-sizing: border-box;
 }
 
 .related_links ul.relatedposts {
-    list-style: none;
-    margin: 10px 5vw;
-    padding: 10px 0;
-    font-size: 14px;
-    line-height: 18px;
+  list-style: none;
+  margin: 10px 5vw;
+  padding: 10px 0;
+  font-size: 14px;
+  line-height: 18px;
 }
 .related_links ul.relatedposts:before {
   content: 'This post relates to:';
@@ -588,7 +596,6 @@ footer.site-footer {
 }
 .related_links ul.relatedposts a {
   text-decoration: none;
-  color: inherit;
 }
 .related_links ul.relatedposts a:before {
   content: "\2014\a0";
