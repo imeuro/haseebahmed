@@ -584,7 +584,7 @@ footer.site-footer {
 
 .related_links ul.relatedposts {
   list-style: none;
-  margin: 10px 5vw;
+  margin: 10px 0;
   padding: 10px 0;
   font-size: 14px;
   line-height: 18px;
@@ -624,7 +624,7 @@ footer.site-footer {
   }
   .single-post .carousel-cell img,
   .page .carousel-cell img {
-    max-height: 75vh;
+    max-height: 50vh;
   }
   .flickity-prev-next-button.next {
     right: 30px;
@@ -643,7 +643,11 @@ footer.site-footer {
   .single-post .entry-footer,
   .page .entry-footer {
     order: 3;
-    flex: 0 0 100%;
-    text-align: center;
+    flex: 1 0 50%;
+    text-align: left;
+    margin-left: 50%;
+    padding: 0 20px;
+    position: sticky;
+    bottom: 0;
   }
 }
