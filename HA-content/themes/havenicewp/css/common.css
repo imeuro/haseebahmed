@@ -95,7 +95,9 @@ footer.site-footer {
 .secondary-navigation .secondary-menu ul {
   list-style: none;
   margin: 0;
-  padding-left: 0;
+  max-height: 50vh;
+  overflow: overlay;
+  padding: 0 20px 0 0;
 }
 .main-navigation label,
 .secondary-navigation label {
@@ -193,7 +195,7 @@ footer.site-footer {
   outline: none;
 }
 .secondary-navigation .menu-toggle {
-  content:'Steps';
+  content:'Weeks';
 }
 
 @media (min-width: 769px) {
@@ -233,14 +235,17 @@ footer.site-footer {
     display: none;
   }
   .secondary-navigation .secondary-menu:before {
-    content:'Steps';
+    content:'Weeks';
   }
   .main-navigation .primary-menu ul,
   .secondary-navigation .secondary-menu ul {
     width: 100%;
     display: flex;
   }
-
+  .secondary-navigation .secondary-menu ul {
+    max-width: 95vw;
+    overflow: scroll;
+  }
   .main-navigation .alignright {
     position: relative;
     right: 10px;
@@ -257,7 +262,7 @@ footer.site-footer {
       height: auto;
   }
   #clearAllFilters {
-    bottom: 5px;
+    bottom: 10px;
   }
 }
 .carousel-main .carousel-cell { margin: 0; }
@@ -280,7 +285,7 @@ footer.site-footer {
   color: var(--black);
   border: none;
   margin: 0;
-  padding: 0 0 0 15px;
+  padding: 0 15px;
   font-family: 'Hershey-Noailles-timesb', serif;
   font-size: 12px;
   line-height: 16px;
@@ -400,8 +405,8 @@ footer.site-footer {
     flex: 0 1 66%;
     height: 25%;
     order: initial;
-    font-size: 14px;
-    line-height: 20px;
+    font-size: 12px;
+    line-height: 16px;
   }
   .carousel-main .entry-date {
     flex: 0 0 auto;
@@ -487,22 +492,26 @@ footer.site-footer {
 .page .carousel-cell img {
   width: 100%;
   height: auto;
+  max-height: 66vh;
   display: inline-block;
   object-fit: contain;
 }
 .carousel-post #caption {
-  font-size: 12px;
+  font-size: 9px;
   margin: 0 10px;
   text-align: center;
 }
 .carousel-cell figcaption { display: none; }
 
+.single-post .flickity-prev-next-button { top: calc(50% - 40px); }
 .single-post .flickity-page-dots,
 .page .flickity-page-dots {
-  font-size: 12px;
+  font-size: 10px;
   line-height: 16px;
   position: initial;
   margin: -10px 0 5px 0;
+  padding-left: 20px;
+  box-sizing: border-box;
   counter-reset: figs;
 }
 .single-post .flickity-page-dots .dot,
@@ -586,8 +595,8 @@ footer.site-footer {
   list-style: none;
   margin: 10px 5vw;
   padding: 10px 0;
-  font-size: 14px;
-  line-height: 18px;
+  font-size: 10px;
+  line-height: 14px;
 }
 .related_links ul.relatedposts:before {
   content: 'This post relates to:';
@@ -624,14 +633,13 @@ footer.site-footer {
   }
   .single-post .carousel-cell img,
   .page .carousel-cell img {
-    max-height: 50vh;
+    max-height: 66vh;
   }
-  .flickity-prev-next-button.next {
-    right: 30px;
-  }
-  .flickity-prev-next-button.previous {
-    left: 30px;
-  }
+
+  .flickity-prev-next-button { top: calc(100vh - 25% - 120px); }
+  .flickity-prev-next-button.next { right: 30px; }
+  .flickity-prev-next-button.previous { left: 30px; }
+
   .single-post .entry-content,
   .page .entry-content {
     order: 1;
