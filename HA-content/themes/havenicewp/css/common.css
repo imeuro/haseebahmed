@@ -256,7 +256,15 @@ footer.site-footer {
   }
   #clearAllFilters {
     bottom: 10px;
+    cursor: no-drop;
   }
+  .main-navigation .alignright a { cursor: help; }
+  .main-navigation label,
+  .secondary-navigation label { cursor: zoom-in; }
+  .main-navigation :checked~label,
+  .secondary-navigation :checked~label { cursor: zoom-out; }
+  .secondary-navigation .inactive label { cursor: default; }
+
 }
 @media (min-width: 1280px) {
   .secondary-navigation .secondary-menu ul {
