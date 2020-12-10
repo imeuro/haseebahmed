@@ -37,7 +37,7 @@
 	?>
 	<a class="glightbox<?php echo $bordercat ?>" href="<?php echo esc_url( get_permalink() ); ?>" rel="bookmark">
 		<div class="entry-header">
-			<?php the_excerpt(); ?>
+			<div class="entry-excerpt"><?php the_excerpt(); ?></div>
 		</div>
 		<p class="entry-date"><?php the_date('d M'); ?></p>
 		<img class="carousel-cell-image" 

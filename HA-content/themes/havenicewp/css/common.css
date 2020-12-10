@@ -166,19 +166,12 @@ footer.site-footer {
   position: absolute;
   left: -9999px;
 }
-/*.main-navigation .color-scirocco:hover + label,*/
 .main-navigation .color-scirocco:checked + label { color: var(--white); background-color: var(--scirocco);}
-/*.main-navigation .color-acqua-alta:hover + label,*/
 .main-navigation .color-acqua-alta:checked + label { color: var(--white); background-color: var(--acqua-alta);}
-/*.main-navigation .color-mose:hover + label,*/
 .main-navigation .color-mose:checked + label { color: var(--white); background-color: var(--mose);}
-/*.main-navigation .color-fosgene:hover + label,*/
 .main-navigation .color-fosgene:checked + label { color: var(--white); background-color: var(--fosgene);}
-/*.main-navigation .color-tromba-daria:hover + label,*/
 .main-navigation .color-tromba-daria:checked + label { color: var(--white); background-color: var(--tromba-daria);}
-/*.main-navigation .color-sky:hover + label,*/
 .main-navigation .color-sky:checked + label { color: var(--white); background-color: var(--sky);}
-/*.secondary-navigation [type="checkbox"]:hover + label,*/
 .secondary-navigation [type="checkbox"]:checked + label { color: var(--white); background-color: var(--black);}
 
 .main-navigation .menu-toggle,
@@ -228,7 +221,7 @@ footer.site-footer {
   }
   .main-navigation label,
   .secondary-navigation label {
-    margin: 15px 5px 10px 5px;
+    margin: 15px 3px 10px 3px;
   }
   .main-navigation .menu-toggle,
   .secondary-navigation .menu-toggle {
@@ -243,7 +236,7 @@ footer.site-footer {
     display: flex;
   }
   .secondary-navigation .secondary-menu ul {
-    max-width: 95vw;
+    max-width: 70vw;
     overflow: scroll;
   }
   .main-navigation .alignright {
@@ -263,6 +256,18 @@ footer.site-footer {
   }
   #clearAllFilters {
     bottom: 10px;
+  }
+}
+@media (min-width: 1280px) {
+  .secondary-navigation .secondary-menu ul {
+    max-width: 95vw;
+    overflow: scroll;
+  }
+}
+@media (min-width: 1440px) {
+  .main-navigation label,
+  .secondary-navigation label {
+    margin: 15px 5px 10px 5px;
   }
 }
 .carousel-main .carousel-cell { margin: 0; }
@@ -407,6 +412,12 @@ footer.site-footer {
     order: initial;
     font-size: 12px;
     line-height: 16px;
+  }
+  .carousel-main .entry-excerpt {
+    display: -webkit-box;
+    -webkit-line-clamp: 7;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
   .carousel-main .entry-date {
     flex: 0 0 auto;
