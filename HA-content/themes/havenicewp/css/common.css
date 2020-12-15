@@ -472,7 +472,7 @@ footer.site-footer {
 }
 .page .post-entry-header {
   color: var(--black);
-  background-color: var(--grey);
+  background-color: var(--white);
 }
 .post-entry-header {
   color: var(--white);
