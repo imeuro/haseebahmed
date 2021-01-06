@@ -51,6 +51,20 @@ if (bodyClassList.contains('home')) {
     closeOnOutsideClick: true
   });
 
+  let lightbox2 = GLightbox({
+	selector: '.glightbox-small',
+    skin: 'HAvenice-small',
+    touchNavigation: false,
+    keyboardNavigation: false,
+    width: '80vw',
+    height: '80vh',
+    loop: false,
+    draggable: false,
+    autoplayVideos: false,
+    closeButton: true,
+    closeOnOutsideClick: true
+  });
+
 
   document.addEventListener('DOMContentLoaded', (event) => {
     var checkboxes = document.querySelectorAll("input[type=checkbox][name=categories],input[type=checkbox][name=tags]");
@@ -245,7 +259,7 @@ if (bodyClassList.contains('home')) {
     elements: [{
             'href': hPath+'/about/'
         }],
-    skin: 'HAvenice',
+    skin: 'HAvenice-small',
     touchNavigation: false,
     keyboardNavigation: false,
     width: '80vw',

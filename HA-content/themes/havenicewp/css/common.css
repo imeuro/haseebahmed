@@ -317,7 +317,8 @@ footer.site-footer {
   margin: 0;
 }
 
-.glightbox-HAvenice .goverlay {
+.glightbox-HAvenice .goverlay,
+.glightbox-HAvenice-small .goverlay {
     background: rgba(255,255,255,.92);
 }
 .glightbox-HAvenice .gslide-external { 
@@ -325,7 +326,8 @@ footer.site-footer {
   max-height: calc(var(--vh, 1vh) * 100);
   max-height: 100%;
 }
-.glightbox-HAvenice .gclose {
+.glightbox-HAvenice .gclose,
+.glightbox-HAvenice-small .gclose {
   position: fixed;
   top: 0;
   right: -2px;
@@ -337,14 +339,22 @@ footer.site-footer {
   background: transparent;
   flex-flow: column;
 }
-.glightbox-HAvenice .gclose:before {
+.glightbox-HAvenice-small .gclose {
+  top: 10vh;
+  right: 10vw;
+  height: 50px;
+}
+.glightbox-HAvenice .gclose:before,
+.glightbox-HAvenice-small .gclose:before {
   content: "close";
   font-size: 16px;
   font-family: 'Hershey-Noailles-futurab', sans-serif;
   display: inline-block;
   text-align: center;
 }
-.glightbox-HAvenice .gclose svg { display: none; }
+.glightbox-HAvenice-small .gclose:before { color: var(--white) }
+.glightbox-HAvenice .gclose svg,
+.glightbox-HAvenice-small .gclose svg { display: none; }
 
 
 /* home mobile: flickity carousel off */
@@ -471,8 +481,8 @@ footer.site-footer {
   justify-content: space-around;
 }
 .page .post-entry-header {
-  color: var(--black);
-  background-color: var(--white);
+  background-color: var(--black);
+  color: var(--white);
 }
 .post-entry-header {
   color: var(--white);
@@ -693,4 +703,3 @@ a.post-edit-link {
     background-color: #fff400a1;
     float: right;
 }
-/* testing gitpod.io */
