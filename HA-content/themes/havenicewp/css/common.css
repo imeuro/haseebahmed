@@ -340,8 +340,9 @@ footer.site-footer {
   flex-flow: column;
 }
 .glightbox-HAvenice-small .gclose {
-  top: 10vh;
-  right: 10vw;
+  top: calc(10vh - 20px);
+  right: calc(10vw - 25px);
+  color: var(--black);
   height: 50px;
 }
 .glightbox-HAvenice .gclose:before,
@@ -352,7 +353,7 @@ footer.site-footer {
   display: inline-block;
   text-align: center;
 }
-.glightbox-HAvenice-small .gclose:before { color: var(--white) }
+.glightbox-HAvenice-small .gclose:before { color: var(--black) }
 .glightbox-HAvenice .gclose svg,
 .glightbox-HAvenice-small .gclose svg { display: none; }
 
@@ -464,6 +465,11 @@ footer.site-footer {
   .glightbox-HAvenice .gclose {
     height: 50px;
   }
+  .glightbox-HAvenice-small .gclose {
+    top: 10vh;
+    right: 10vw;
+  }
+  .glightbox-HAvenice-small .gclose:before { color: var(--white) }
 }
 @media (min-width: 1440px) {
   .carousel-main .carousel-cell {
