@@ -48,8 +48,8 @@
 				 
 							foreach ( $terms as $term ) :
 								$category = get_category( $term->term_id );
-								echo '<li><input class="color-' . $category->slug . '" type="checkbox" value="' . $term->term_id . '" id="menu-' . $term->name . '" name="categories" />';
-								echo '<label class="color-' . $category->slug . '" for="menu-' . $term->name . '">' . $term->name . '</label></li>';
+								echo '<li><input class="color-' . $category->cat_ID . '" type="checkbox" value="' . $term->term_id . '" id="menu-' . $term->name . '" name="categories" />';
+								echo '<label class="color-' . $category->cat_ID . '" for="menu-' . $term->name . '">' . $term->name . '</label></li>';
 							endforeach;
 						endif;
 					?>
