@@ -20,7 +20,7 @@
 	$cat = get_the_category($post->id);
 
 	if (count($cat) == 1) {
-		$bordercat = ' border-color-'.$cat[0]->slug;
+		$bordercat = ' border-color-'.$cat[0]->cat_ID;
 	} else {
 		// linear gradient...
 		$singlebordercat = null;

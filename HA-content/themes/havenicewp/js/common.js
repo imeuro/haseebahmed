@@ -95,8 +95,8 @@ if (bodyClassList.contains('home')) {
   let genFE = (data,mainCarousel) => {
     let out = '';
     data.forEach( function(element, index) {
-      // console.debug('CATS: '+element.categories_slug);
-      let bordercat = ' border-color-'+element.categories_slug[0];
+      // console.debug({element});
+      let bordercat = ' border-color-'+element.categories[0];
       let singlebordercat = '';
       if (element.categories_slug.length > 1) {
         bordercat  = '" style="border-image-slice: 1; border-image-source: linear-gradient(90deg, ';
