@@ -39,7 +39,7 @@
 		<div class="entry-header">
 			<div class="entry-excerpt"><?php the_excerpt(); ?></div>
 		</div>
-		<p class="entry-date"><?php the_date('d M'); ?></p>
+		<p class="entry-date"><?php echo get_the_date('d M'); ?></p>
 		<img class="carousel-cell-image" 
 			srcset="<?php echo esc_attr( $img_srcset ); ?>" 
 			sizes="(min-width: 960px) 1920px, 100wv" 
