@@ -18,6 +18,9 @@
 	<link rel="profile" href="https://gmpg.org/xfn/11">
 
 	<?php wp_head(); ?>
+
+	<?php include( get_template_directory().'/template-parts/sections-colors.php'); ?>
+	
 </head>
 
 <body <?php body_class(); ?>>

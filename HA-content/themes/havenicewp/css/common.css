@@ -1,47 +1,12 @@
 html,body { height: 100%; }
 a:visited { color: inherit; }
-/* SECTIONS COLOR VARS */
-:root {
-  --black:            #000;
-  --grey:             #999;
-  --white:            #fff;
-  --scirocco:         #ff0000;
-  --acqua-alta:       #d1ba01;
-  --mose:             #7f5de1;
-  --fosgene:          #45db51;
-  --tromba-daria:     #ff00ff;
-  --sky:              #0098ff;
-}
-.color-2,
-a.color-2 { color: var(--scirocco) }
-.color-3,
-a.color-3 { color: var(--acqua-alta) }
-.color-4,
-a.color-4 { color: var(--mose);}
-.color-5,
-a.color-5 { color: var(--fosgene) }
-.color-6,
-a.color-6 { color: var(--tromba-daria) }
-.color-7,
-a.color-7 { color: var(--sky) }
-.color-uncategorized,
-a.color-uncategorized { color: var(--grey) }
 
-.border-color-2 { border-color: var(--scirocco);}
-.border-color-3 { border-color: var(--acqua-alta);}
-.border-color-4 { border-color: var(--mose);}
-.border-color-5 { border-color: var(--fosgene);}
-.border-color-6 { border-color: var(--tromba-daria);}
-.border-color-7 { border-color: var(--sky);}
-.border-color-uncategorized { border-color: var(--grey);}
+/*****************************
 
-.background-color-2 { background-color: var(--scirocco);}
-.background-color-3 { background-color: var(--acqua-alta);}
-.background-color-4 { background-color: var(--mose);}
-.background-color-5 { background-color: var(--fosgene);}
-.background-color-6 { background-color: var(--tromba-daria);}
-.background-color-7 { background-color: var(--sky);}
-.background-color-uncategorized { background-color: var(--grey);}
+==> SECTIONS COLOR VARS :
+==> GOTO sections-colors.php;
+
+******************************/
 
 .mobile-only { display: inline-block !important; }
 .desktop-only { display: none !important; }
