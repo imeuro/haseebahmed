@@ -131,12 +131,6 @@ footer.site-footer {
   position: absolute;
   left: -9999px;
 }
-.main-navigation .color-2:checked + label { color: var(--white); background-color: var(--scirocco);}
-.main-navigation .color-3:checked + label { color: var(--white); background-color: var(--acqua-alta);}
-.main-navigation .color-4:checked + label { color: var(--white); background-color: var(--mose);}
-.main-navigation .color-5:checked + label { color: var(--white); background-color: var(--fosgene);}
-.main-navigation .color-6:checked + label { color: var(--white); background-color: var(--tromba-daria);}
-.main-navigation .color-7:checked + label { color: var(--white); background-color: var(--sky);}
 .secondary-navigation [type="checkbox"]:checked + label { color: var(--white); background-color: var(--black);}
 
 .main-navigation .menu-toggle,

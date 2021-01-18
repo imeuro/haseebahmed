@@ -30,8 +30,9 @@ $categories = get_categories(array(
 foreach($categories as $cat) {
 	echo ".color-".$cat->term_id."{ color: var(--".$cat->slug."); }\n";
 	echo "a.color-".$cat->term_id."{ color: var(--".$cat->slug."); }\n";
-	echo "border-color-".$cat->term_id."{ border-color: var(--".$cat->slug."); }\n";
-	echo "background-color-".$cat->term_id."{ background-color: var(--".$cat->slug."); }\n";
+	echo ".border-color-".$cat->term_id."{ border-color: var(--".$cat->slug."); }\n";
+	echo ".background-color-".$cat->term_id."{ background-color: var(--".$cat->slug."); }\n";
+	echo ".main-navigation .color-".$cat->term_id.":checked + label { color: var(--white); background-color: var(--".$cat->slug."); }\n";
 }
 ?>
 .color-uncategorized,
