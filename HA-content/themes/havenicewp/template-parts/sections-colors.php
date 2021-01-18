@@ -28,10 +28,10 @@ $categories = get_categories(array(
 
 <?php 
 foreach($categories as $cat) {
-	echo ".color-".$cat->term_id."{ color: var(--".$cat->slug."); } ";
-	echo "a.color-".$cat->term_id."{ color: var(--".$cat->slug."); } ";
-	echo ".border-color-".$cat->term_id."{ border-color: var(--".$cat->slug."); } ";
-	echo ".background-color-".$cat->term_id."{ background-color: var(--".$cat->slug."); } ";
+	echo ".color-".$cat->term_id." { color: var(--".$cat->slug."); } ";
+	echo "a.color-".$cat->term_id." { color: var(--".$cat->slug."); } ";
+	echo ".border-color-".$cat->term_id." { border-color: var(--".$cat->slug."); } ";
+	echo ".background-color-".$cat->term_id." { background-color: var(--".$cat->slug."); } ";
 	echo ".main-navigation .color-".$cat->term_id.":checked + label { color: var(--white); background-color: var(--".$cat->slug."); }\n";
 }
 ?>
