@@ -421,6 +421,9 @@ footer.site-footer {
   .carousel-reloaded .carousel-cell-image  {
     opacity: 1;
   }
+  .glightbox-HAvenice-small .ginner-container {
+    border: 1px solid #000;
+  }
   .glightbox-HAvenice .gclose {
     height: 50px;
   }
@@ -500,6 +503,9 @@ footer.site-footer {
 .single-post .flickity-prev-next-button { top: calc(50% - 40px); }
 .single-post .flickity-page-dots,
 .page .flickity-page-dots {
+  
+  display:none;
+
   font-size: 10px;
   line-height: 16px;
   position: initial;

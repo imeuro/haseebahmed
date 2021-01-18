@@ -12,7 +12,6 @@ $categories = get_categories(array(
 //    echo '-------------------'."\n";
 // }
 ?>
-
 <style>
 /* SECTIONS COLOR VARS */
 :root {
@@ -21,22 +20,20 @@ $categories = get_categories(array(
 	--white:            #fff;
 	<?php 
 	foreach($categories as $cat) {
-		echo "\n\t--".$cat->slug.":\t\t\t".get_field('category_color','category_'.$cat->term_id).';';
+		echo "\n\t--".$cat->slug.":\t".get_field('category_color','category_'.$cat->term_id).';';
 	}
 	?>
+
 }
 
 <?php 
 foreach($categories as $cat) {
-	echo ".color-".$cat->term_id."{ color: var(--".$cat->slug."); }\n";
-	echo "a.color-".$cat->term_id."{ color: var(--".$cat->slug."); }\n";
-	echo ".border-color-".$cat->term_id."{ border-color: var(--".$cat->slug."); }\n";
-	echo ".background-color-".$cat->term_id."{ background-color: var(--".$cat->slug."); }\n";
+	echo ".color-".$cat->term_id."{ color: var(--".$cat->slug."); } ";
+	echo "a.color-".$cat->term_id."{ color: var(--".$cat->slug."); } ";
+	echo ".border-color-".$cat->term_id."{ border-color: var(--".$cat->slug."); } ";
+	echo ".background-color-".$cat->term_id."{ background-color: var(--".$cat->slug."); } ";
 	echo ".main-navigation .color-".$cat->term_id.":checked + label { color: var(--white); background-color: var(--".$cat->slug."); }\n";
 }
 ?>
-.color-uncategorized,
-a.color-uncategorized { color: var(--grey) }
-.border-color-uncategorized { border-color: var(--grey);}
-.background-color-uncategorized { background-color: var(--grey);}
+.color-uncategorized { color: var(--grey) } a.color-uncategorized { color: var(--grey) } .border-color-uncategorized { border-color: var(--grey);} .background-color-uncategorized { background-color: var(--grey);}
 </style>
