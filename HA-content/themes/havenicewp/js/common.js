@@ -176,7 +176,7 @@ if (bodyClassList.contains('home')) {
     if (checkTagIDs.length)
       qry += '&tags='+checkTagIDs.join();
     if (checkCatIDs.length && checkTagIDs.length)
-      qry += '&tax_relation=AND';
+      qry += '&tax_relation=OR';
     console.debug({qry});
       fetch(qry,{
       method: "GET",

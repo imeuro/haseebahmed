@@ -9,7 +9,8 @@
 
 if ( ! defined( '_S_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( '_S_VERSION', '1.0.0' );
+	$path = get_template_directory().'/css/common.css';
+	define( '_S_VERSION', filemtime($path) );
 }
 
 if ( ! function_exists( 'havenicewp_setup' ) ) :
@@ -75,21 +76,14 @@ add_action( 'after_setup_theme', 'havenicewp_setup' );
 function havenicewp_scripts() {
 	wp_enqueue_style( 'havenicewp-style', get_stylesheet_uri(), array(), _S_VERSION );
 	wp_style_add_data( 'havenicewp-style', 'rtl', 'replace' );
-	wp_enqueue_style( 'flickity', get_template_directory_uri() . '/css/flickity.min.css', array(), _S_VERSION);
-	wp_enqueue_style( 'glightbox', get_template_directory_uri() . '/css/glightbox.min.css', array(), _S_VERSION);
+	wp_enqueue_style( 'flickity', get_template_directory_uri() . '/css/flickity.min.css', array('havenicewp-style'), _S_VERSION);
+	wp_enqueue_style( 'glightbox', get_template_directory_uri() . '/css/glightbox.min.css', array('havenicewp-style'), _S_VERSION);
 	wp_enqueue_style( 'havenicewp-common', get_template_directory_uri() . '/css/common.css', array('havenicewp-style'), _S_VERSION);
-
 
 	wp_enqueue_script( 'havenicewp-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 	wp_enqueue_script( 'flickity', get_template_directory_uri() . '/js/flickity.pkgd.min.js', array(), '', true);
 	wp_enqueue_script( 'glightbox', get_template_directory_uri() . '/js/glightbox.min.js', array('flickity'), '', true);
 	wp_enqueue_script( 'havenicewp-common', get_template_directory_uri() . '/js/common.js', array('glightbox'), _S_VERSION, true);
-	if (is_single()) {
-		wp_enqueue_style( 'flickity-fullscreen', get_template_directory_uri() . '/css/flickity-fullscreen.css', array('havenicewp-style'), _S_VERSION);
-		wp_enqueue_script( 'flickity-fullscreen', get_template_directory_uri() . '/js/flickity-fullscreen.js', array('flickity'), _S_VERSION, true);
-	}
-
-
 }
 add_action( 'wp_enqueue_scripts', 'havenicewp_scripts' );
 
