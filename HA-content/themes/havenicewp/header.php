@@ -34,11 +34,15 @@
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'havenicewp' ); ?></a>
 	<?php if (is_home() || is_front_page() || is_404()) : ?>
 		<header id="masthead" class="site-header">
-		
+			<div class="blackhead">
+				<a href="<?php echo home_url() ?>"><?php echo bloginfo('name') ?> &dash; <?php echo bloginfo('description') ?></a>
+				<ul class="blackhead-right">
+					<li><a href="<?php echo home_url() ?>" class="glightbox-small">About Haseeb Ahmed</a></li>
+					<li><a href="<?php echo get_permalink($post=2) ?>" class="glightbox-small">About this website</a></li>
+				</ul>
+			</div>
 			<nav id="site-navigation" class="main-navigation">
-
 				<button class="menu-toggle" aria-controls="site-navigation" aria-expanded="false"><?php esc_html_e( 'Categories', 'havenicewp' ); ?></button>
-				<button class="alignright"><a class="glightbox-small" href="<?php echo get_permalink($post=2) ?>">About</a></button>
 				<form class="primary-menu" method="GET" id="catMenu">
 					<ul>
 					<?php
