@@ -47,6 +47,7 @@ header#masthead .blackhead {
 }
 header#masthead .blackhead a {
   font-family: 'Hershey-Noailles-futurab', sans-serif;
+  color: var(--white);
   font-size: 14px;
   font-weight: 300;
   line-height: 14px;
