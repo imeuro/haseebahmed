@@ -84,7 +84,7 @@ header#masthead .blackhead a {
   align-items: flex-start;
   justify-content: flex-start;
   position: absolute;
-  top: 35px;
+  top: 140px;
   z-index: 10;
   transition: opacity 300ms linear;
   opacity: 0;
@@ -377,7 +377,7 @@ header#masthead .blackhead a {
 
 /* home mobile: flickity carousel off */
 .home main,
-.error404 main { margin-top: 35px; }
+.error404 main { margin-top: 135px; }
 .carousel-main:after { content: ''; display: none; }
 
 .simpletextdiv {
