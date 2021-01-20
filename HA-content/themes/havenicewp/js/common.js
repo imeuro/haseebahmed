@@ -165,18 +165,18 @@ if (bodyClassList.contains('home')) {
     });
 
     excludeIDS  =  allCatIDs.filter(x => !checkCatIDs.includes(x)); // basically allCatIDs - checkCatIDs
-    // console.debug({excludeIDS});
-    // console.debug({checkCatIDs});
-    // console.debug({checkTagIDs});
+     // console.debug({excludeIDS});
+     // console.debug({checkCatIDs});
+     // console.debug({checkTagIDs});
     let qry = qPath+'?';
     if (checkCatIDs.length)
       qry += 'categories='+checkCatIDs.join();
-    if (excludeIDS.length && excludeIDS.length != allCatIDs.length)
-      qry += '&categories_exclude='+excludeIDS.join();
+    // if (excludeIDS.length && excludeIDS.length != allCatIDs.length)
+      // qry += '&categories_exclude='+excludeIDS.join();
     if (checkTagIDs.length)
       qry += '&tags='+checkTagIDs.join();
     if (checkCatIDs.length && checkTagIDs.length)
-      qry += '&tax_relation=OR';
+      qry += '&tax_relation=AND';
     console.debug({qry});
       fetch(qry,{
       method: "GET",
