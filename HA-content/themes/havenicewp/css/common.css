@@ -299,8 +299,8 @@ footer.site-footer {
   flex-flow: column;
 }
 .glightbox-HAvenice-small .gclose {
-  top: calc(10vh - 20px);
-  right: calc(10vw - 25px);
+  top: calc(5vh - 20px);
+  right: calc(5vw - 25px);
   color: var(--black);
   height: 50px;
 }
@@ -428,8 +428,8 @@ footer.site-footer {
     height: 50px;
   }
   .glightbox-HAvenice-small .gclose {
-    top: 10vh;
-    right: 10vw;
+    top: 5vh;
+    right: 5vw;
   }
   .glightbox-HAvenice-small .gclose:before { color: var(--white) }
 }
