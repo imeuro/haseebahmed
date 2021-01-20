@@ -37,7 +37,7 @@
 			<div class="blackhead">
 				<a href="<?php echo home_url() ?>"><?php echo bloginfo('name') ?> &dash; <?php echo bloginfo('description') ?></a>
 				<ul class="blackhead-right">
-					<li><a href="<?php echo home_url() ?>" class="glightbox-small">About Haseeb Ahmed</a></li>
+					<li><a href="<?php echo get_permalink($post=202) ?>" class="glightbox-small">About Haseeb Ahmed</a></li>
 					<li><a href="<?php echo get_permalink($post=2) ?>" class="glightbox-small">About this website</a></li>
 				</ul>
 			</div>

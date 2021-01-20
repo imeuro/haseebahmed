@@ -434,9 +434,9 @@ header#masthead .blackhead a {
     flex-flow: row wrap;
     align-items: flex-start;
     justify-content: flex-start;
-    height: calc(100vh - 126px);
+    height: calc(100vh - 156px);
     overflow: hidden;
-    margin: 60px 0 0 0;
+    margin: 90px 0 0 0;
     text-decoration: none;
     border-top-width: 3px;
     border-top-style: solid;
@@ -469,7 +469,7 @@ header#masthead .blackhead a {
     margin: 0 auto;
     width: 100%;
     object-fit: cover;
-    height: calc(100vh - 25% - 120px);
+    height: calc(100vh - 25% - 160px);
     opacity: 1;
     transition: opacity 0.4s;
   }
