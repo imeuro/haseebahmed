@@ -198,7 +198,7 @@ if (bodyClassList.contains('home')) {
 }
 
 /*** for the post: ***/
-if (bodyClassList.contains('single-post')) {
+if (bodyClassList.contains('single-post') || bodyClassList.contains('page')) {
 
   const createcaptionDiv = () => {
     let captDiv = document.createElement('div');

@@ -21,13 +21,33 @@
 	</header><!-- .entry-header -->
 
 	<?php 
-	if( get_field('extra_content') || get_field('related_links') || get_the_post_thumbnail() ) : ?>
-		<div id="allPostIMG" class="carousel carousel-post">
-			<?php havenicewp_post_thumbnail(); ?>
-			<div class="extra_content"><?php the_field('extra_content'); ?></div>
-			<div class="related_links"><?php the_related_links(); ?></div>
-		</div>
-	<?php endif; ?>
+	if ($allPostIMG || has_post_thumbnail()) {
+		echo '<div id="allPostIMG" class="carousel carousel-post">';
+		// a carousel with all the post images
+
+		// shows the post_thumbnail:
+		if (has_post_thumbnail()) :
+			echo '<figure class="carousel-cell">'.get_the_post_thumbnail( $post->ID, 'large', '', array( "class" => "img-responsive carousel-cell-image" ) );
+			echo '<figcaption>'.wp_get_attachment_caption( $thumbnailID ).'</figcaption></figure>';
+		endif;
+		// shows other pics:
+		if ($allPostIMG) :
+			foreach ( $allPostIMG as $PostIMG ) {
+				echo '<figure class="carousel-cell">'.wp_get_attachment_image( $PostIMG["attached_image"], 'large', '', array( "class" => "img-responsive carousel-cell-image" ) );
+
+				if ($PostIMG["attached_caption"] && $PostIMG["attached_caption"] != '') :
+					$caption = $PostIMG["attached_caption"];
+				else :
+					$caption = wp_get_attachment_caption($PostIMG["attached_image"]);
+				endif;
+
+				echo '<figcaption>'. $caption .'</figcaption></figure>';
+	        }
+	    endif;
+        echo '</div>';
+
+	}
+	?>
 
 
 
