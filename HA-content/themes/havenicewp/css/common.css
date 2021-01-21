@@ -48,11 +48,11 @@ header#masthead .blackhead {
 header#masthead .blackhead a {
   font-family: 'Hershey-Noailles-futurab', sans-serif;
   color: var(--white);
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 300;
   line-height: 14px;
   text-decoration: none;
-  letter-spacing: -1px;
+  letter-spacing: -1.3px;
   margin-top: 5px;
 }
 .blackhead ul.blackhead-right {
@@ -558,7 +558,9 @@ header#masthead .blackhead a {
 }
 .carousel-cell figcaption { display: none; }
 
-.single-post .flickity-prev-next-button { top: calc(50% - 40px); }
+.single-post .flickity-prev-next-button,
+.page .flickity-prev-next-button  { top: calc(50% - 15px); }
+.flickity-button:disabled { opacity: 0; }
 .single-post .flickity-page-dots,
 .page .flickity-page-dots {
   
