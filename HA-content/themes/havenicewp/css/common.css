@@ -197,8 +197,6 @@ header#masthead .blackhead a {
 }
 
 @media (min-width: 769px) {
-  header#masthead { height: 0; }
-
   header#masthead .blackhead {
     flex-flow: row nowrap;
     height: 30px;
@@ -239,7 +237,7 @@ header#masthead .blackhead a {
     line-height: 26px;
     color: var(--black);
     display: inline-block;
-    margin: 15px 5px 10px 5px;
+    margin: 5px 5px 10px 5px;
     padding: 0px 8px;
   }
   .main-navigation label,
@@ -261,6 +259,7 @@ header#masthead .blackhead a {
   .secondary-navigation .secondary-menu ul {
     max-width: 70vw;
     overflow: scroll;
+    height: 60px;
   }
   .main-navigation .alignright {
     position: relative;
@@ -292,7 +291,8 @@ header#masthead .blackhead a {
 @media (min-width: 1280px) {
   .secondary-navigation .secondary-menu ul {
     max-width: 95vw;
-    overflow: scroll;
+    overflow-x: auto;
+    overflow-y: hidden;
   }
 }
 @media (min-width: 1440px) {
@@ -403,6 +403,9 @@ header#masthead .blackhead a {
 
 
 @media (min-width: 769px) {
+  header#masthead {
+    height: 85px;
+  }
   /* home desktop: flickity carousel on */ 
   .home main,
   .error404 main { margin-top: 0; }
