@@ -9,11 +9,7 @@
 
 
 $allPostIMG = get_field('attached_images',$post->ID);
-$thumbnailID = get_post_thumbnail_id($post->ID);
-
-print_r($allPostIMG);
-print_r($thumbnailID);
-
+$thumbnailID = get_post_thumbnail_id($post->ID)
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>

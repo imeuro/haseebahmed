@@ -383,7 +383,10 @@ header#masthead .blackhead a {
 
 /* home mobile: flickity carousel off */
 .home main,
-.error404 main { margin-top: 135px; }
+.error404 main { 
+  margin-top: 135px;
+  padding-bottom: 40px;
+}
 .carousel-main:after { content: ''; display: none; }
 
 .simpletextdiv {
@@ -408,7 +411,10 @@ header#masthead .blackhead a {
   }
   /* home desktop: flickity carousel on */ 
   .home main,
-  .error404 main { margin-top: 0; }
+  .error404 main {
+    margin-top: 0; 
+    padding-bottom: 0;
+  }
   .carousel-main:after { content: 'flickity'; }
 
   .carousel-main .carousel-cell-image { opacity: 1 }
