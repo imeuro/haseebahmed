@@ -26,7 +26,10 @@ if (count($cat) == 1) {
 }
 
 $allPostIMG = get_field('attached_images',$post->ID);
-$thumbnailID = get_post_thumbnail_id($post->ID)
+$thumbnailID = get_post_thumbnail_id($post->ID);
+
+print_r($allPostIMG);
+print_r($thumbnailID);
 ?>
 
 
