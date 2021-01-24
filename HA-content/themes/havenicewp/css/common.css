@@ -240,6 +240,10 @@ header#masthead .blackhead a {
     margin: 5px 5px 10px 5px;
     padding: 0px 8px;
   }
+  .main-navigation .primary-menu:before {
+      position: relative;
+      top: 5px;
+  }
   .main-navigation label,
   .secondary-navigation label {
     margin: 15px 3px 10px 3px;
@@ -363,7 +367,7 @@ header#masthead .blackhead a {
   flex-flow: column;
 }
 .glightbox-HAvenice-small .gclose {
-  top: calc(5vh - 20px);
+  top: calc(5vh - 40px);
   right: calc(5vw - 25px);
   color: var(--black);
   height: 50px;

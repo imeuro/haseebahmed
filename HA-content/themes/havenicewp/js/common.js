@@ -206,27 +206,36 @@ if (bodyClassList.contains('single-post') || bodyClassList.contains('page')) {
     captDiv.id='caption';
     targetDiv.appendChild(captDiv);
   }
+  if (postCarousel) {
+    var flkty = new Flickity( postCarousel, { 
+        adaptiveHeight: true,
+        prevNextButtons: true,
+        fullscreen: true,
+        arrowShape: 'm75.7576 83.986c0-1.4286-6.9697-9.8214-15.1515-18.5714l-15.4546-15.7143 15.4546-15.5357c15.4545-15.8929 18.1818-20.7143 11.2121-20.5358-6.6667.1786-47.5758 31.25-47.5758 36.0715 0 3.0357 7.8788 10 23.0303 20.7143 22.7273 16.0714 28.4849 18.75 28.4849 13.5714z',
+        on: {
+        ready: function() {
+          createcaptionDiv();
+          let caption = document.getElementById('caption');
+          let figcaption = this.selectedElement.getElementsByTagName('figcaption');
+          caption.textContent = figcaption[0].innerHTML;
+          console.debug(this);
+          this.resize();
 
-  var flkty = new Flickity( postCarousel, { 
-      adaptiveHeight: true,
-      prevNextButtons: true,
-      fullscreen: true,
-      arrowShape: 'm75.7576 83.986c0-1.4286-6.9697-9.8214-15.1515-18.5714l-15.4546-15.7143 15.4546-15.5357c15.4545-15.8929 18.1818-20.7143 11.2121-20.5358-6.6667.1786-47.5758 31.25-47.5758 36.0715 0 3.0357 7.8788 10 23.0303 20.7143 22.7273 16.0714 28.4849 18.75 28.4849 13.5714z',
-      on: {
-      ready: function() {
-        createcaptionDiv();
-        let caption = document.getElementById('caption');
-        let figcaption = this.selectedElement.getElementsByTagName('figcaption');
-        caption.textContent = figcaption[0].innerHTML;
+        }
       }
-    }
-  });
+    });
 
-  flkty.on( 'select', function() {
-    let caption = document.getElementById('caption');
-    let figcaption = flkty.selectedElement.getElementsByTagName('figcaption');
-    caption.textContent = figcaption[0].innerHTML;
-  });
+    flkty.on( 'select', function() {
+      let caption = document.getElementById('caption');
+      let figcaption = flkty.selectedElement.getElementsByTagName('figcaption');
+      caption.textContent = figcaption[0].innerHTML;
+    });
+
+    document.addEventListener('load', (event) => {
+      console.debug({flkty});
+      flkty.resize();
+    });
+  }
 
 }
 

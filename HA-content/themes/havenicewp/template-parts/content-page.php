@@ -24,7 +24,7 @@ $thumbnailID = get_post_thumbnail_id($post->ID)
 	</header><!-- .entry-header -->
 
 	<?php 
-	if ($allPostIMG || has_post_thumbnail()) {
+	if ($allPostIMG && has_post_thumbnail()) {
 		echo '<div id="allPostIMG" class="carousel carousel-post">';
 		// a carousel with all the post images
 
@@ -49,6 +49,12 @@ $thumbnailID = get_post_thumbnail_id($post->ID)
 	    endif;
         echo '</div>';
 
+	} else {
+		echo '<div class="carousel-post">';
+		echo '<figure class="carousel-cell">'.get_the_post_thumbnail( $post->ID, 'large', '', array( "class" => "img-responsive carousel-cell-image" ) );
+		echo '</figure>';
+		echo '<div id="caption">'.wp_get_attachment_caption( $thumbnailID ).'</div>';
+		echo '</div>';
 	}
 	?>
 
