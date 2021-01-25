@@ -11,7 +11,7 @@
 $allPostIMG = get_field('attached_images',$post->ID);
 $thumbnailID = get_post_thumbnail_id($post->ID)
 ?>
-202
+
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="post-entry-header">
 		<?php
@@ -23,8 +23,7 @@ $thumbnailID = get_post_thumbnail_id($post->ID)
 		 ?>
 	</header><!-- .entry-header -->
 
-	<?php 
-	?>
+	<?php 	?>
 
 
 
