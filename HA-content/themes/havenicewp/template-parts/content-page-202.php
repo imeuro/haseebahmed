@@ -27,7 +27,7 @@ $thumbnailID = get_post_thumbnail_id($post->ID)
 
 
 
-	<div class="entry-content">
+	<div class="entry-content entry-content-wide">
 		<?php
 		the_content(
 			sprintf(

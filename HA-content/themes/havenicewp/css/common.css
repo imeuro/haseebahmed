@@ -727,6 +727,10 @@ header#masthead .blackhead a {
     margin: 0;
     padding: 20px;
   }
+  .single-post .entry-content.entry-content-wide,
+  .page .entry-content.entry-content-wide  {
+    flex: 0 0 100%;
+  }
   .single-post .entry-footer,
   .page .entry-footer {
     order: 3;
