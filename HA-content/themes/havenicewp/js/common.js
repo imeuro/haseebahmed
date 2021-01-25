@@ -220,7 +220,6 @@ if (bodyClassList.contains('single-post') || bodyClassList.contains('page')) {
           caption.textContent = figcaption[0].innerHTML;
           console.debug(this);
           this.resize();
-
         }
       }
     });
