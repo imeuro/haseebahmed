@@ -15,7 +15,7 @@
 		
 		<nav id="steps-navigation" class="secondary-navigation">
 
-			<button class="menu-toggle" aria-controls="secondary-navigation" aria-expanded="false"><?php esc_html_e( 'Steps', 'havenicewp' ); ?></button>
+			<button class="menu-toggle" aria-controls="secondary-navigation" aria-expanded="false"><?php esc_html_e( 'Weeks', 'havenicewp' ); ?></button>
 
 			<form class="secondary-menu" method="GET" id="tagMenu">
 				<ul>
