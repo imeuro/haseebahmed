@@ -15,7 +15,7 @@ get_header();
 		<?php
 		while ( have_posts() ) :
 			the_post();
-			print_r($post);
+			//print_r($post);
 			if ($post->ID == 202) :
 				get_template_part( 'template-parts/content', 'page-202' );
 			else :
